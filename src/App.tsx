@@ -302,6 +302,18 @@ function App() {
               background: `radial-gradient(circle at ${spotlight.x}% ${spotlight.y}%, rgba(221, 183, 171, 0.32), transparent 22rem)`,
             }}
           />
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-[8%] top-[24%] hidden h-3 w-3 rounded-full bg-olive/45 shadow-[0_0_30px_rgba(153,155,132,0.5)] lg:block"
+            animate={shouldReduceMotion ? undefined : { y: [0, -18, 0], opacity: [0.35, 0.9, 0.35], scale: [1, 1.25, 1] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-[20%] left-[42%] hidden h-2.5 w-2.5 rounded-full bg-blush/70 shadow-[0_0_26px_rgba(221,183,171,0.55)] lg:block"
+            animate={shouldReduceMotion ? undefined : { y: [0, 16, 0], x: [0, 10, 0], opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 6.2, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
+          />
           <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
             <motion.div
               variants={fadeUp}
@@ -312,7 +324,13 @@ function App() {
               className="max-w-4xl"
             >
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-olive/20 bg-white/55 px-4 py-2 text-sm font-semibold text-olive-dark shadow-soft">
-                <Sparkles size={16} />
+                <motion.span
+                  animate={shouldReduceMotion ? undefined : { rotate: [0, 12, -8, 0], scale: [1, 1.14, 1] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                  className="inline-flex"
+                >
+                  <Sparkles size={16} />
+                </motion.span>
                 Premium coaching for sustainable transformation
               </div>
               <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[1.02] text-ink sm:text-7xl lg:text-8xl">
@@ -387,16 +405,42 @@ function App() {
               }}
               className="relative"
             >
-              <div className="rounded-[2rem] border border-white/70 bg-white/70 p-3 shadow-card backdrop-blur">
+              <motion.div
+                className="rounded-[2rem] border border-white/70 bg-white/70 p-3 shadow-card backdrop-blur"
+                animate={shouldReduceMotion ? undefined : { boxShadow: ['0 28px 90px rgba(2, 4, 3, 0.14)', '0 34px 105px rgba(128, 130, 106, 0.22)', '0 28px 90px rgba(2, 4, 3, 0.14)'] }}
+                transition={{ duration: 5.8, repeat: Infinity, ease: 'easeInOut' }}
+              >
                 <div className="relative overflow-hidden rounded-[1.55rem] bg-ink p-7 text-soft sm:p-8">
-                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blush via-blush-light to-olive" />
-                  <motion.img
-                    src="/brand/core-soul-logo.png"
-                    alt="Core Soul Wellness and Fitness brand mark"
-                    whileHover={shouldReduceMotion ? undefined : { scale: 1.08, rotate: 2 }}
-                    transition={{ type: 'spring', stiffness: 220, damping: 18 }}
-                    className="relative mx-auto h-32 w-32 rounded-full object-contain sm:h-44 sm:w-44"
+                  <motion.div
+                    className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blush via-blush-light to-olive"
+                    animate={shouldReduceMotion ? undefined : { opacity: [0.75, 1, 0.75] }}
+                    transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                   />
+                  <div className="relative mx-auto grid h-36 w-36 place-items-center sm:h-48 sm:w-48">
+                    {[0, 0.9].map((delay) => (
+                      <motion.span
+                        key={delay}
+                        aria-hidden="true"
+                        className="absolute inset-0 rounded-full border border-blush-light/30"
+                        animate={shouldReduceMotion ? undefined : { scale: [0.86, 1.24], opacity: [0.45, 0] }}
+                        transition={{ duration: 3.2, repeat: Infinity, ease: 'easeOut', delay }}
+                      />
+                    ))}
+                    <motion.span
+                      aria-hidden="true"
+                      className="absolute inset-3 rounded-full bg-blush-light/10 blur-xl"
+                      animate={shouldReduceMotion ? undefined : { scale: [1, 1.12, 1], opacity: [0.45, 0.8, 0.45] }}
+                      transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                    <motion.img
+                      src="/brand/core-soul-logo.png"
+                      alt="Core Soul Wellness and Fitness brand mark"
+                      animate={shouldReduceMotion ? undefined : { y: [0, -6, 0] }}
+                      whileHover={shouldReduceMotion ? undefined : { scale: 1.08, rotate: 2 }}
+                      transition={{ duration: 4.6, repeat: Infinity, ease: 'easeInOut' }}
+                      className="relative h-32 w-32 rounded-full object-contain sm:h-44 sm:w-44"
+                    />
+                  </div>
                   <div className="relative mt-8 rounded-[1.35rem] border border-white/10 bg-white/[0.08] p-5">
                     <p className="text-sm font-bold uppercase tracking-[0.18em] text-blush-light">Core outcomes</p>
                     <div className="mt-5 grid gap-4 sm:grid-cols-2">
@@ -423,7 +467,7 @@ function App() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
