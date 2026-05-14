@@ -335,6 +335,32 @@ function App() {
             animate={shouldReduceMotion ? undefined : { y: [0, 16, 0], x: [0, 10, 0], opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 6.2, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
           />
+          {!shouldReduceMotion ? (
+            <Floating sensitivity={-0.34} easingFactor={0.045} className="pointer-events-none z-0 hidden opacity-90 xl:block">
+              <FloatingElement depth={0.8} className="left-[4%] bottom-[12%]">
+                <motion.img
+                  src={heroImages[0].url}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-32 w-32 -rotate-6 rounded-2xl border border-white/75 object-cover shadow-card"
+                  initial={{ opacity: 0, y: 18, rotate: -10 }}
+                  animate={{ opacity: 1, y: [0, -10, 0], rotate: [-6, -4, -6] }}
+                  transition={{ opacity: { duration: 0.5, delay: 0.5 }, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
+                />
+              </FloatingElement>
+              <FloatingElement depth={1.4} className="right-[3%] top-[18%]">
+                <motion.img
+                  src={heroImages[1].url}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-32 w-32 rotate-6 rounded-2xl border border-white/75 object-cover shadow-card"
+                  initial={{ opacity: 0, y: 18, rotate: 10 }}
+                  animate={{ opacity: 1, y: [0, 12, 0], rotate: [6, 8, 6] }}
+                  transition={{ opacity: { duration: 0.5, delay: 0.75 }, y: { duration: 7, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 7, repeat: Infinity, ease: 'easeInOut' } }}
+                />
+              </FloatingElement>
+            </Floating>
+          ) : null}
           <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
             <motion.div
               variants={fadeUp}
@@ -435,60 +461,10 @@ function App() {
                 rotateY: shouldReduceMotion ? 0 : heroTilt.y,
                 transformPerspective: 900,
               }}
-              className="relative isolate"
+              className="relative"
             >
-              {!shouldReduceMotion ? (
-                <div className="pointer-events-none absolute -inset-x-20 -inset-y-16 z-0 hidden lg:block xl:-inset-x-24">
-                  <Floating sensitivity={-0.34} easingFactor={0.045} className="opacity-90">
-                    <FloatingElement depth={0.8} className="left-[13%] top-2">
-                      <motion.img
-                        src={heroImages[0].url}
-                        alt=""
-                        aria-hidden="true"
-                        className="h-28 w-28 -rotate-6 rounded-2xl border border-white/75 object-cover shadow-card xl:h-32 xl:w-32"
-                        initial={{ opacity: 0, y: 18, rotate: -10 }}
-                        animate={{ opacity: 1, y: [0, -10, 0], rotate: [-6, -4, -6] }}
-                        transition={{ opacity: { duration: 0.5, delay: 0.5 }, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
-                      />
-                    </FloatingElement>
-                    <FloatingElement depth={1.4} className="right-[14%] top-0">
-                      <motion.img
-                        src={heroImages[1].url}
-                        alt=""
-                        aria-hidden="true"
-                        className="h-28 w-28 rotate-6 rounded-2xl border border-white/75 object-cover shadow-card xl:h-32 xl:w-32"
-                        initial={{ opacity: 0, y: 18, rotate: 10 }}
-                        animate={{ opacity: 1, y: [0, 12, 0], rotate: [6, 8, 6] }}
-                        transition={{ opacity: { duration: 0.5, delay: 0.75 }, y: { duration: 7, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 7, repeat: Infinity, ease: 'easeInOut' } }}
-                      />
-                    </FloatingElement>
-                    <FloatingElement depth={1.1} className="bottom-2 left-[12%]">
-                      <motion.img
-                        src={heroImages[2].url}
-                        alt=""
-                        aria-hidden="true"
-                        className="h-28 w-28 rotate-3 rounded-3xl border border-white/75 object-cover shadow-card xl:h-32 xl:w-32"
-                        initial={{ opacity: 0, y: 18, rotate: 0 }}
-                        animate={{ opacity: 1, y: [0, 10, 0], rotate: [3, 1, 3] }}
-                        transition={{ opacity: { duration: 0.5, delay: 1 }, y: { duration: 6.6, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 6.6, repeat: Infinity, ease: 'easeInOut' } }}
-                      />
-                    </FloatingElement>
-                    <FloatingElement depth={1.8} className="bottom-3 right-[10%]">
-                      <motion.img
-                        src={heroImages[3].url}
-                        alt=""
-                        aria-hidden="true"
-                        className="h-28 w-28 -rotate-3 rounded-3xl border border-white/75 object-cover shadow-card xl:h-32 xl:w-32"
-                        initial={{ opacity: 0, y: 18, rotate: -7 }}
-                        animate={{ opacity: 1, y: [0, -12, 0], rotate: [-3, -6, -3] }}
-                        transition={{ opacity: { duration: 0.5, delay: 1.2 }, y: { duration: 7.4, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 7.4, repeat: Infinity, ease: 'easeInOut' } }}
-                      />
-                    </FloatingElement>
-                  </Floating>
-                </div>
-              ) : null}
               <motion.div
-                className="relative z-10 rounded-[2rem] border border-white/70 bg-white/70 p-3 shadow-card backdrop-blur"
+                className="rounded-[2rem] border border-white/70 bg-white/70 p-3 shadow-card backdrop-blur"
                 animate={shouldReduceMotion ? undefined : { boxShadow: ['0 28px 90px rgba(2, 4, 3, 0.14)', '0 34px 105px rgba(128, 130, 106, 0.22)', '0 28px 90px rgba(2, 4, 3, 0.14)'] }}
                 transition={{ duration: 5.8, repeat: Infinity, ease: 'easeInOut' }}
               >
