@@ -438,9 +438,9 @@ function App() {
               className="relative isolate"
             >
               {!shouldReduceMotion ? (
-                <div className="pointer-events-none absolute -inset-x-8 -inset-y-10 z-0 hidden lg:block">
+                <div className="pointer-events-none absolute -inset-x-20 -inset-y-16 z-0 hidden lg:block xl:-inset-x-24">
                   <Floating sensitivity={-0.34} easingFactor={0.045} className="opacity-90">
-                    <FloatingElement depth={0.8} className="-left-2 top-[45%]">
+                    <FloatingElement depth={0.8} className="left-0 top-[39%]">
                       <motion.img
                         src={heroImages[0].url}
                         alt=""
@@ -451,7 +451,7 @@ function App() {
                         transition={{ opacity: { duration: 0.5, delay: 0.5 }, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
                       />
                     </FloatingElement>
-                    <FloatingElement depth={1.4} className="-right-3 top-[39%]">
+                    <FloatingElement depth={1.4} className="right-0 top-[34%]">
                       <motion.img
                         src={heroImages[1].url}
                         alt=""
@@ -462,7 +462,7 @@ function App() {
                         transition={{ opacity: { duration: 0.5, delay: 0.75 }, y: { duration: 7, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 7, repeat: Infinity, ease: 'easeInOut' } }}
                       />
                     </FloatingElement>
-                    <FloatingElement depth={1.1} className="bottom-0 left-[22%]">
+                    <FloatingElement depth={1.1} className="bottom-2 left-[12%]">
                       <motion.img
                         src={heroImages[2].url}
                         alt=""
@@ -473,7 +473,7 @@ function App() {
                         transition={{ opacity: { duration: 0.5, delay: 1 }, y: { duration: 6.6, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 6.6, repeat: Infinity, ease: 'easeInOut' } }}
                       />
                     </FloatingElement>
-                    <FloatingElement depth={1.8} className="bottom-1 right-[18%]">
+                    <FloatingElement depth={1.8} className="bottom-3 right-[10%]">
                       <motion.img
                         src={heroImages[3].url}
                         alt=""
