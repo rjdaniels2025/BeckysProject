@@ -337,45 +337,45 @@ function App() {
           />
           {!shouldReduceMotion ? (
             <Floating sensitivity={-0.42} easingFactor={0.045} className="pointer-events-none hidden opacity-80 lg:block">
-              <FloatingElement depth={0.8} className="left-[3%] top-[19%]">
+              <FloatingElement depth={0.8} className="right-[31%] top-[47%]">
                 <motion.img
                   src={heroImages[0].url}
                   alt=""
                   aria-hidden="true"
-                  className="h-28 w-40 -rotate-6 rounded-2xl border border-white/70 object-cover shadow-card"
+                  className="h-28 w-28 -rotate-6 rounded-2xl border border-white/70 object-cover shadow-card xl:h-32 xl:w-32"
                   initial={{ opacity: 0, y: 18, rotate: -10 }}
                   animate={{ opacity: 1, y: [0, -10, 0], rotate: [-6, -4, -6] }}
                   transition={{ opacity: { duration: 0.5, delay: 0.5 }, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
                 />
               </FloatingElement>
-              <FloatingElement depth={1.4} className="right-[4%] top-[14%]">
+              <FloatingElement depth={1.4} className="right-[9%] top-[45%]">
                 <motion.img
                   src={heroImages[1].url}
                   alt=""
                   aria-hidden="true"
-                  className="h-32 w-44 rotate-6 rounded-2xl border border-white/70 object-cover shadow-card"
+                  className="h-28 w-28 rotate-6 rounded-2xl border border-white/70 object-cover shadow-card xl:h-32 xl:w-32"
                   initial={{ opacity: 0, y: 18, rotate: 10 }}
                   animate={{ opacity: 1, y: [0, 12, 0], rotate: [6, 8, 6] }}
                   transition={{ opacity: { duration: 0.5, delay: 0.75 }, y: { duration: 7, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 7, repeat: Infinity, ease: 'easeInOut' } }}
                 />
               </FloatingElement>
-              <FloatingElement depth={1.1} className="bottom-[9%] left-[7%]">
+              <FloatingElement depth={1.1} className="bottom-[17%] right-[25%]">
                 <motion.img
                   src={heroImages[2].url}
                   alt=""
                   aria-hidden="true"
-                  className="h-36 w-36 rotate-3 rounded-3xl border border-white/70 object-cover shadow-card"
+                  className="h-28 w-28 rotate-3 rounded-3xl border border-white/70 object-cover shadow-card xl:h-32 xl:w-32"
                   initial={{ opacity: 0, y: 18, rotate: 0 }}
                   animate={{ opacity: 1, y: [0, 10, 0], rotate: [3, 1, 3] }}
                   transition={{ opacity: { duration: 0.5, delay: 1 }, y: { duration: 6.6, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 6.6, repeat: Infinity, ease: 'easeInOut' } }}
                 />
               </FloatingElement>
-              <FloatingElement depth={1.8} className="bottom-[10%] right-[6%]">
+              <FloatingElement depth={1.8} className="bottom-[14%] right-[8%]">
                 <motion.img
                   src={heroImages[3].url}
                   alt=""
                   aria-hidden="true"
-                  className="h-40 w-32 -rotate-3 rounded-3xl border border-white/70 object-cover shadow-card"
+                  className="h-28 w-28 -rotate-3 rounded-3xl border border-white/70 object-cover shadow-card xl:h-32 xl:w-32"
                   initial={{ opacity: 0, y: 18, rotate: -7 }}
                   animate={{ opacity: 1, y: [0, -12, 0], rotate: [-3, -6, -3] }}
                   transition={{ opacity: { duration: 0.5, delay: 1.2 }, y: { duration: 7.4, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 7.4, repeat: Infinity, ease: 'easeInOut' } }}
