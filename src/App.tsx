@@ -11,6 +11,7 @@ import {
   Salad,
   Sparkles,
   SunMedium,
+  TrendingUp,
   UserRoundCheck,
   X,
 } from 'lucide-react'
@@ -68,6 +69,21 @@ const reasons = [
   'Fitness and wellness together',
   'Real life habit building',
   'Compassionate accountability',
+]
+
+const proofPoints = [
+  {
+    value: '110+',
+    label: 'lbs released through steady lifestyle change',
+  },
+  {
+    value: 'Type 2',
+    label: 'diabetes reversed with consistent health habits',
+  },
+  {
+    value: 'Daily',
+    label: 'routines rebuilt for strength, balance, and recovery',
+  },
 ]
 
 const testimonials = [
@@ -162,7 +178,7 @@ function App() {
             type="button"
             aria-label="Toggle navigation menu"
             onClick={() => setMenuOpen((current) => !current)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-olive/20 bg-white/60 text-ink lg:hidden"
+            className="grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-olive/20 bg-white/60 text-ink lg:hidden"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -312,6 +328,48 @@ function App() {
                 ))}
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        <section className="px-5 py-12 sm:px-8 lg:py-20" aria-labelledby="proof-heading">
+          <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-white/70 bg-white/55 p-5 shadow-soft sm:p-8 lg:p-10">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.55 }}
+              >
+                <div className="mb-5 inline-grid h-12 w-12 place-items-center rounded-2xl bg-blush-light text-olive-dark">
+                  <TrendingUp size={24} />
+                </div>
+                <p className="mb-3 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Lived Transformation</p>
+                <h2 id="proof-heading" className="font-serif text-3xl font-semibold leading-tight text-ink sm:text-5xl">
+                  Real change, built one grounded choice at a time.
+                </h2>
+                <p className="mt-5 text-base leading-8 text-ink/70 sm:text-lg">
+                  Becky’s story gives the coaching a different kind of credibility. She understands the courage,
+                  patience, and structure it takes to rebuild your health from the inside out.
+                </p>
+              </motion.div>
+              <div className="grid gap-4 sm:grid-cols-3">
+                {proofPoints.map((point, index) => (
+                  <motion.div
+                    key={point.value}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: index * 0.08 }}
+                    className="rounded-[1.7rem] bg-soft p-6 shadow-soft"
+                  >
+                    <p className="font-serif text-4xl font-semibold text-olive-dark">{point.value}</p>
+                    <p className="mt-4 text-sm font-semibold leading-6 text-ink/70">{point.label}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 

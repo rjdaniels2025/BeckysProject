@@ -39,10 +39,31 @@ a {
 
 button,
 a {
+  cursor: pointer;
   touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 3px solid #80826a;
+  outline-offset: 4px;
 }
 
 ::selection {
   background: #ddb7ab;
   color: #020403;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
