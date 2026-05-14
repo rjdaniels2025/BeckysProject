@@ -440,7 +440,7 @@ function App() {
               {!shouldReduceMotion ? (
                 <div className="pointer-events-none absolute -inset-x-20 -inset-y-16 z-0 hidden lg:block xl:-inset-x-24">
                   <Floating sensitivity={-0.34} easingFactor={0.045} className="opacity-90">
-                    <FloatingElement depth={0.8} className="left-0 top-[39%]">
+                    <FloatingElement depth={0.8} className="left-[13%] top-2">
                       <motion.img
                         src={heroImages[0].url}
                         alt=""
@@ -451,7 +451,7 @@ function App() {
                         transition={{ opacity: { duration: 0.5, delay: 0.5 }, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
                       />
                     </FloatingElement>
-                    <FloatingElement depth={1.4} className="right-0 top-[34%]">
+                    <FloatingElement depth={1.4} className="right-[14%] top-0">
                       <motion.img
                         src={heroImages[1].url}
                         alt=""
