@@ -1,4 +1,6 @@
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
+import Floating, { FloatingElement } from '@/components/ui/parallax-floating'
+import { TextRotate } from '@/components/ui/text-rotate'
 import {
   ArrowRight,
   BadgeCheck,
@@ -116,6 +118,25 @@ const callSteps = [
   { icon: MessageCircle, title: 'Talk through goals', text: 'Share where you are, what has felt hard, and what you want to change.' },
   { icon: ClipboardCheck, title: 'Map the first plan', text: 'Get a simple starting direction for workouts, nutrition, routines, and support.' },
   { icon: CalendarCheck, title: 'Choose the next step', text: 'If it feels aligned, Becky will recommend the coaching path that fits best.' },
+]
+
+const heroImages = [
+  {
+    url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=900&auto=format&fit=crop',
+    title: 'Woman practicing yoga',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=900&auto=format&fit=crop',
+    title: 'Strength training equipment',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=900&auto=format&fit=crop',
+    title: 'Balanced healthy meal',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=900&auto=format&fit=crop',
+    title: 'Meditation and breathing practice',
+  },
 ]
 
 const fadeUp = {
@@ -314,6 +335,54 @@ function App() {
             animate={shouldReduceMotion ? undefined : { y: [0, 16, 0], x: [0, 10, 0], opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 6.2, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
           />
+          {!shouldReduceMotion ? (
+            <Floating sensitivity={-0.42} easingFactor={0.045} className="pointer-events-none hidden opacity-80 lg:block">
+              <FloatingElement depth={0.8} className="left-[3%] top-[19%]">
+                <motion.img
+                  src={heroImages[0].url}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-28 w-40 -rotate-6 rounded-2xl border border-white/70 object-cover shadow-card"
+                  initial={{ opacity: 0, y: 18, rotate: -10 }}
+                  animate={{ opacity: 1, y: [0, -10, 0], rotate: [-6, -4, -6] }}
+                  transition={{ opacity: { duration: 0.5, delay: 0.5 }, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
+                />
+              </FloatingElement>
+              <FloatingElement depth={1.4} className="right-[4%] top-[14%]">
+                <motion.img
+                  src={heroImages[1].url}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-32 w-44 rotate-6 rounded-2xl border border-white/70 object-cover shadow-card"
+                  initial={{ opacity: 0, y: 18, rotate: 10 }}
+                  animate={{ opacity: 1, y: [0, 12, 0], rotate: [6, 8, 6] }}
+                  transition={{ opacity: { duration: 0.5, delay: 0.75 }, y: { duration: 7, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 7, repeat: Infinity, ease: 'easeInOut' } }}
+                />
+              </FloatingElement>
+              <FloatingElement depth={1.1} className="bottom-[9%] left-[7%]">
+                <motion.img
+                  src={heroImages[2].url}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-36 w-36 rotate-3 rounded-3xl border border-white/70 object-cover shadow-card"
+                  initial={{ opacity: 0, y: 18, rotate: 0 }}
+                  animate={{ opacity: 1, y: [0, 10, 0], rotate: [3, 1, 3] }}
+                  transition={{ opacity: { duration: 0.5, delay: 1 }, y: { duration: 6.6, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 6.6, repeat: Infinity, ease: 'easeInOut' } }}
+                />
+              </FloatingElement>
+              <FloatingElement depth={1.8} className="bottom-[10%] right-[6%]">
+                <motion.img
+                  src={heroImages[3].url}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-40 w-32 -rotate-3 rounded-3xl border border-white/70 object-cover shadow-card"
+                  initial={{ opacity: 0, y: 18, rotate: -7 }}
+                  animate={{ opacity: 1, y: [0, -12, 0], rotate: [-3, -6, -3] }}
+                  transition={{ opacity: { duration: 0.5, delay: 1.2 }, y: { duration: 7.4, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 7.4, repeat: Infinity, ease: 'easeInOut' } }}
+                />
+              </FloatingElement>
+            </Floating>
+          ) : null}
           <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
             <motion.div
               variants={fadeUp}
@@ -334,7 +403,18 @@ function App() {
                 Premium coaching for sustainable transformation
               </div>
               <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[1.02] text-ink sm:text-7xl lg:text-8xl">
-                Build strength, balance, and a body you trust.
+                Build{' '}
+                <TextRotate
+                  texts={['strength', 'balance', 'confidence', 'consistency']}
+                  rotationInterval={2600}
+                  staggerDuration={0.018}
+                  staggerFrom="last"
+                  mainClassName="inline-flex overflow-hidden text-olive-dark"
+                  splitLevelClassName="inline-flex"
+                  elementLevelClassName="inline-block"
+                  transition={{ type: 'spring', damping: 28, stiffness: 360 }}
+                />{' '}
+                that lasts.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-ink/72 sm:text-xl">
                 Personalized fitness, wellness, nutrition, and lifestyle coaching for women who want sustainable
