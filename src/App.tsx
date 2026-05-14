@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
 import {
   ArrowRight,
   BadgeCheck,
@@ -123,6 +123,34 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 }
 
+const floatIn = {
+  hidden: { opacity: 0, y: 36, scale: 0.97 },
+  visible: { opacity: 1, y: 0, scale: 1 },
+}
+
+const staggerGroup = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.06,
+    },
+  },
+}
+
+function ScrollProgress() {
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 28, restDelta: 0.001 })
+
+  return (
+    <motion.div
+      aria-hidden="true"
+      className="fixed left-0 top-0 z-[70] h-1 w-full origin-left bg-gradient-to-r from-blush via-olive to-ink"
+      style={{ scaleX }}
+    />
+  )
+}
+
 function Logo({ compact = false }: { compact?: boolean }) {
   return (
     <a href="#home" className="flex items-center gap-3" aria-label="Core Soul Wellness and Fitness home">
@@ -172,9 +200,16 @@ function SectionHeader({
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const shouldReduceMotion = useReducedMotion()
+  const { scrollYProgress } = useScroll()
+  const heroCardY = useTransform(scrollYProgress, [0, 0.18], [0, shouldReduceMotion ? 0 : 44])
+  const heroCardRotate = useTransform(scrollYProgress, [0, 0.18], [0, shouldReduceMotion ? 0 : -1.5])
+  const heroCopyY = useTransform(scrollYProgress, [0, 0.16], [0, shouldReduceMotion ? 0 : -18])
+  const heroCopyOpacity = useTransform(scrollYProgress, [0, 0.2], [1, shouldReduceMotion ? 1 : 0.84])
 
   return (
     <div id="home" className="min-h-screen overflow-hidden bg-soft text-ink">
+      <ScrollProgress />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:font-bold focus:text-soft"
@@ -241,6 +276,7 @@ function App() {
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.75, ease: 'easeOut' }}
+              style={{ y: heroCopyY, opacity: heroCopyOpacity }}
               className="max-w-4xl"
             >
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-olive/20 bg-white/55 px-4 py-2 text-sm font-semibold text-olive-dark shadow-soft">
@@ -271,18 +307,41 @@ function App() {
               </div>
               <div className="mt-8 grid max-w-2xl gap-3 text-sm font-semibold text-ink/70 sm:grid-cols-3">
                 {['Free clarity call', 'No extreme dieting', 'Built around real life'].map((item) => (
-                  <div key={item} className="flex items-center gap-2">
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.45, delay: 0.45 + item.length * 0.006, ease: 'easeOut' }}
+                    className="flex items-center gap-2"
+                  >
                     <ShieldCheck className="shrink-0 text-olive-dark" size={18} />
                     <span>{item}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
+              <motion.a
+                href="#about"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="mt-10 hidden w-fit items-center gap-3 text-sm font-bold uppercase tracking-[0.18em] text-ink/50 transition hover:text-olive-dark lg:flex"
+              >
+                <span className="relative h-10 w-6 rounded-full border border-olive/35">
+                  <motion.span
+                    className="absolute left-1/2 top-2 h-2 w-2 -translate-x-1/2 rounded-full bg-olive"
+                    animate={shouldReduceMotion ? undefined : { y: [0, 14, 0], opacity: [1, 0.35, 1] }}
+                    transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                  />
+                </span>
+                Scroll
+              </motion.a>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
+              style={{ y: heroCardY, rotate: heroCardRotate }}
               className="relative"
             >
               <div className="rounded-[2rem] border border-white/70 bg-white/70 p-3 shadow-card backdrop-blur">
@@ -397,14 +456,17 @@ function App() {
                   patience, and structure it takes to rebuild your health from the inside out.
                 </p>
               </motion.div>
-              <div className="grid gap-4 sm:grid-cols-3">
+              <motion.div
+                variants={staggerGroup}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.25 }}
+                className="grid gap-4 sm:grid-cols-3"
+              >
                 {proofPoints.map((point, index) => (
                   <motion.div
                     key={point.value}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
+                    variants={floatIn}
                     transition={{ duration: 0.5, delay: index * 0.08 }}
                     className="rounded-[1.7rem] bg-soft p-6 shadow-soft"
                   >
@@ -412,7 +474,7 @@ function App() {
                     <p className="mt-4 text-sm font-semibold leading-6 text-ink/70">{point.label}</p>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -424,19 +486,22 @@ function App() {
               title="Personal support for your whole life, not just your workouts."
               text="Every plan combines fitness, nutrition, wellness, and lifestyle habits so progress feels clear, supported, and sustainable."
             />
-            <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.18 }}
+              className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4"
+            >
               {services.map((service, index) => {
                 const Icon = service.icon
                 return (
                   <motion.div
                     key={service.title}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.25 }}
+                    variants={floatIn}
                     transition={{ duration: 0.55, delay: index * 0.08 }}
-                  className="group rounded-[2rem] border border-white/70 bg-white/62 p-7 shadow-soft transition hover:-translate-y-1 hover:bg-white hover:shadow-card"
-                >
+                    className="group rounded-[2rem] border border-white/70 bg-white/62 p-7 shadow-soft transition hover:-translate-y-1 hover:bg-white hover:shadow-card"
+                  >
                     <div className="mb-8 flex items-start justify-between gap-4">
                       <div className="grid h-14 w-14 place-items-center rounded-2xl bg-blush-light text-olive-dark transition group-hover:bg-olive group-hover:text-white">
                         <Icon size={25} />
@@ -449,7 +514,7 @@ function App() {
                   </motion.div>
                 )
               })}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -461,14 +526,17 @@ function App() {
               text="The process is designed to remove confusion, create momentum, and help you build consistency without losing yourself in the process."
               dark
             />
-            <div className="mt-14 grid gap-5 lg:grid-cols-3">
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              className="mt-14 grid gap-5 lg:grid-cols-3"
+            >
               {method.map((step, index) => (
                 <motion.div
                   key={step.title}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
+                  variants={floatIn}
                   transition={{ duration: 0.55, delay: index * 0.1 }}
                   className="rounded-[2rem] border border-white/10 bg-white/[0.07] p-7"
                 >
@@ -482,7 +550,7 @@ function App() {
                   <p className="mt-4 leading-7 text-soft/72">{step.text}</p>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -504,14 +572,17 @@ function App() {
                 supportive, direct, and made for lasting change.
               </p>
             </motion.div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="grid gap-4 sm:grid-cols-2"
+            >
               {reasons.map((reason, index) => (
                 <motion.div
                   key={reason}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.25 }}
+                  variants={floatIn}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   className="flex items-center gap-4 rounded-3xl bg-white/65 p-5 shadow-soft"
                 >
@@ -521,7 +592,7 @@ function App() {
                   <p className="font-semibold text-ink/78">{reason}</p>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -532,14 +603,17 @@ function App() {
               title="Support that feels personal, steady, and honest."
               text="Early feedback is centered on the qualities that matter most: clear structure, realistic habits, and coaching that feels human."
             />
-            <div className="mt-14 grid gap-5 lg:grid-cols-3">
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="mt-14 grid gap-5 lg:grid-cols-3"
+            >
               {testimonials.map((testimonial, index) => (
                 <motion.div
                   key={`${testimonial.name}-${index}`}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
+                  variants={floatIn}
                   transition={{ duration: 0.55, delay: index * 0.08 }}
                   className="rounded-[2rem] bg-white/70 p-7 shadow-soft"
                 >
@@ -555,7 +629,7 @@ function App() {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -596,11 +670,22 @@ function App() {
                   <p className="mt-1 text-sm font-semibold text-ink/58">Simple, calm, and clear from the first email.</p>
                 </div>
               </div>
-              <div className="grid gap-4">
-                {callSteps.map((step) => {
+              <motion.div
+                variants={staggerGroup}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.25 }}
+                className="grid gap-4"
+              >
+                {callSteps.map((step, index) => {
                   const Icon = step.icon
                   return (
-                    <div key={step.title} className="flex gap-4 rounded-2xl border border-olive/12 bg-soft/70 p-5">
+                    <motion.div
+                      key={step.title}
+                      variants={floatIn}
+                      transition={{ duration: 0.48, delay: index * 0.07 }}
+                      className="flex gap-4 rounded-2xl border border-olive/12 bg-soft/70 p-5"
+                    >
                       <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-olive text-white">
                         <Icon size={19} />
                       </span>
@@ -608,10 +693,10 @@ function App() {
                         <h3 className="font-bold text-ink">{step.title}</h3>
                         <p className="mt-2 leading-7 text-ink/68">{step.text}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   )
                 })}
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </section>
