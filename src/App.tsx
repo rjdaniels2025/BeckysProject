@@ -1,6 +1,5 @@
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
 import Floating, { FloatingElement } from '@/components/ui/parallax-floating'
-import { TextRotate } from '@/components/ui/text-rotate'
 import {
   ArrowRight,
   BadgeCheck,
@@ -13,12 +12,9 @@ import {
   Mail,
   Menu,
   MessageCircle,
-  Quote,
-  Salad,
   ShieldCheck,
   Sparkles,
   Star,
-  SunMedium,
   Timer,
   TrendingUp,
   UserRoundCheck,
@@ -29,59 +25,59 @@ import { useState, type PointerEvent } from 'react'
 const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Coaching', href: '#coaching' },
-  { label: 'Method', href: '#method' },
-  { label: 'Results', href: '#testimonials' },
+  { label: 'EFT Tapping', href: '#eft' },
+  { label: 'Core Clearing', href: '#core-clearing' },
 ]
 
 const services = [
   {
-    title: 'Fitness Coaching',
-    icon: Dumbbell,
-    text: 'Workouts, strength training, mobility, conditioning, and body composition goals built around your life.',
-    highlight: 'Strength, mobility, conditioning',
-  },
-  {
-    title: 'Wellness Coaching',
+    title: 'Healthy Coping Skills',
     icon: HeartPulse,
-    text: 'Habits, stress, mindset, sleep, routines, and work life balance that support the way you want to feel.',
-    highlight: 'Stress, sleep, consistency',
+    text: 'Personalized support to build healthier responses, steadier habits, and practical tools you can use in real life.',
+    highlight: 'Support for daily life',
   },
   {
-    title: 'Nutrition Coaching',
-    icon: Salad,
-    text: 'Meal guidance, macros, healthy eating habits, and sustainable food choices without extreme rules.',
-    highlight: 'Realistic food structure',
+    title: 'Emotional Regulation',
+    icon: ShieldCheck,
+    text: 'EFT Tapping and Core Clearing techniques to help calm the nervous system and create healthier emotional responses.',
+    highlight: 'Calm, clarity, resilience',
   },
   {
-    title: 'Lifestyle Coaching',
-    icon: SunMedium,
-    text: 'Daily behaviors, long term health goals, accountability, and the support needed to create lasting change.',
-    highlight: 'Accountability that fits life',
+    title: 'Breakthrough Work',
+    icon: Sparkles,
+    text: 'Support for emotional blocks, limiting beliefs, cravings, and self-sabotaging patterns that can keep you stuck.',
+    highlight: 'Release old patterns',
+  },
+  {
+    title: 'Strength and Confidence',
+    icon: Dumbbell,
+    text: 'At-home workouts or gym confidence built around your needs, your goals, and your unique starting point.',
+    highlight: 'Fitness that meets you',
   },
 ]
 
 const method = [
   {
-    title: 'Assess',
-    text: 'Understand your goals, habits, lifestyle, health history, schedule, and starting point.',
+    title: 'Release',
+    text: 'Use tapping to help release emotional stress, overwhelm, and unresolved experiences held in the body.',
   },
   {
-    title: 'Align',
-    text: 'Build a realistic plan that fits your life, energy, responsibilities, and current fitness level.',
+    title: 'Reprogram',
+    text: 'Create new neural pathways so unhelpful patterns can shift into calmer, healthier responses.',
   },
   {
-    title: 'Transform',
-    text: 'Improve strength, health, confidence, and consistency with steady support and clear direction.',
+    title: 'Regulate',
+    text: 'Build a lifelong self-regulation tool for emotions, cravings, clarity, grounding, and personal growth.',
   },
 ]
 
 const reasons = [
-  'Sustainable results',
-  'No extreme dieting',
-  'Personalized support',
-  'Fitness and wellness together',
-  'Real life habit building',
-  'Compassionate accountability',
+  'Release subconscious emotional blocks',
+  'Heal unresolved trauma and fear-based patterns',
+  'Shift limiting beliefs and self-sabotaging behaviors',
+  'Reduce emotional overwhelm and stress responses',
+  'Create greater clarity, confidence, and inner balance',
+  'Support personal growth and emotional freedom',
 ]
 
 const proofPoints = [
@@ -99,25 +95,10 @@ const proofPoints = [
   },
 ]
 
-const testimonials = [
-  {
-    name: 'Core Soul client',
-    text: 'Becky helped me stop starting over. I finally have structure that feels realistic and support that keeps me consistent.',
-  },
-  {
-    name: 'Core Soul client',
-    text: 'The coaching feels personal, calm, and clear. I feel stronger in my body and more in control of my daily choices.',
-  },
-  {
-    name: 'Core Soul client',
-    text: 'I never felt judged or pushed into extremes. The plan helped me build habits I can actually keep.',
-  },
-]
-
 const callSteps = [
   { icon: MessageCircle, title: 'Talk through goals', text: 'Share where you are, what has felt hard, and what you want to change.' },
-  { icon: ClipboardCheck, title: 'Map the first plan', text: 'Get a simple starting direction for workouts, nutrition, routines, and support.' },
-  { icon: CalendarCheck, title: 'Choose the next step', text: 'If it feels aligned, Becky will recommend the coaching path that fits best.' },
+  { icon: ClipboardCheck, title: 'Personalize support', text: 'Explore the fitness, EFT, or Core Clearing approach that fits your specific needs.' },
+  { icon: CalendarCheck, title: 'Create lasting change', text: 'Move forward with a session plan designed to support transformation from the inside out.' },
 ]
 
 const heroImages = [
@@ -378,25 +359,14 @@ function App() {
                 >
                   <Sparkles size={16} />
                 </motion.span>
-                Premium coaching for sustainable transformation
+                CoreSoul Wellness & Fitness
               </div>
               <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[1.02] text-ink sm:text-7xl lg:text-8xl">
-                Build{' '}
-                <TextRotate
-                  texts={['strength', 'balance', 'confidence', 'consistency']}
-                  rotationInterval={2600}
-                  staggerDuration={0.018}
-                  staggerFrom="last"
-                  mainClassName="inline-flex overflow-hidden text-olive-dark"
-                  splitLevelClassName="inline-flex"
-                  elementLevelClassName="inline-block"
-                  transition={{ type: 'spring', damping: 28, stiffness: 360 }}
-                />{' '}
-                that lasts.
+                Build strength. Create balance. Thrive fully.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-ink/72 sm:text-xl">
-                Personalized fitness, wellness, nutrition, and lifestyle coaching for women who want sustainable
-                change without punishment, extremes, or starting over every Monday.
+                Whether you are starting with at-home workouts or building confidence in the gym, Becky has got you every
+                step of the way.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <motion.a
@@ -418,7 +388,7 @@ function App() {
                 </motion.a>
               </div>
               <div className="mt-8 grid max-w-2xl gap-3 text-sm font-semibold text-ink/70 sm:grid-cols-3">
-                {['Free clarity call', 'No extreme dieting', 'Built around real life'].map((item) => (
+                {['At-home workouts', 'Gym confidence', 'Mind-body support'].map((item) => (
                   <motion.div
                     key={item}
                     initial={{ opacity: 0, y: 14 }}
@@ -500,9 +470,9 @@ function App() {
                     />
                   </div>
                   <div className="relative mt-8 rounded-[1.35rem] border border-white/10 bg-white/[0.08] p-5">
-                    <p className="text-sm font-bold uppercase tracking-[0.18em] text-blush-light">Core outcomes</p>
+                    <p className="text-sm font-bold uppercase tracking-[0.18em] text-blush-light">Core support</p>
                     <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                      {['Strength', 'Balance', 'Confidence', 'Consistency'].map((item) => (
+                      {['Strength', 'Balance', 'Confidence', 'Healing'].map((item) => (
                         <motion.div
                           key={item}
                           whileHover={shouldReduceMotion ? undefined : { x: 5 }}
@@ -546,9 +516,9 @@ function App() {
                     <UserRoundCheck className="text-olive-dark" size={42} />
                   </div>
                   <p className="font-serif text-3xl font-semibold text-ink">Becky</p>
-                  <p className="mt-3 text-sm font-semibold uppercase tracking-[0.2em] text-olive-dark">Founder and coach</p>
+                  <p className="mt-3 text-sm font-semibold uppercase tracking-[0.2em] text-olive-dark">Certified trainer and holistic practitioner</p>
                   <p className="mt-5 leading-7 text-ink/68">
-                    A lived-transformation coach helping women rebuild health with compassion, structure, and steady action.
+                    Fitness coaching, EFT Tapping, Core Clearing, Reiki, and social service experience brought together with care.
                   </p>
                 </div>
               </div>
@@ -561,20 +531,21 @@ function App() {
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Founder Story</p>
+              <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Meet Becky</p>
               <h2 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-5xl">
-                “I know what transformation feels like because I’ve lived it.”
+                Certified support rooted in lived transformation.
               </h2>
               <p className="mt-6 text-lg leading-8 text-ink/72">
-                Core Soul was built from real life change. Becky reversed type 2 diabetes, lost over 110 lbs, overcame
-                addiction, and rebuilt a healthier, stronger, more balanced life through steady choices and support.
+                Becky is a certified personal trainer through the International Sports Sciences Association, an EFT and
+                Core Clearing Work Practitioner, Reiki Master, and holds a diploma in Social Service Work.
               </p>
               <p className="mt-5 text-lg leading-8 text-ink/72">
-                Her coaching is grounded in compassion, structure, and accountability. The goal is not perfection. It is
-                helping women feel capable, cared for, and confident as they create a lifestyle they can keep.
+                After overcoming drug addiction, losing over 110 lbs, and reversing Type 2 Diabetes through proper
+                nutrition, movement, and sustainable lifestyle changes, Becky is passionate about helping other women
+                create lasting transformation in both body and mind.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {['Reversed type 2 diabetes', 'Lost over 110 lbs', 'Overcame addiction', 'Built lasting balance'].map((item) => (
+                {['ISSA certified personal trainer', 'EFT and Core Clearing Practitioner', 'Reiki Master', 'Social Service Work diploma'].map((item) => (
                   <div key={item} className="flex items-center gap-3 rounded-2xl bg-white/60 p-4">
                     <BadgeCheck className="shrink-0 text-olive-dark" size={20} />
                     <span className="font-semibold text-ink/78">{item}</span>
@@ -598,13 +569,13 @@ function App() {
                 <div className="mb-5 inline-grid h-12 w-12 place-items-center rounded-2xl bg-blush-light text-olive-dark">
                   <TrendingUp size={24} />
                 </div>
-                <p className="mb-3 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Lived Transformation</p>
+                <p className="mb-3 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">A Holistic Approach</p>
                 <h2 id="proof-heading" className="font-serif text-3xl font-semibold leading-tight text-ink sm:text-5xl">
-                  Real change, built one grounded choice at a time.
+                  Fitness coaching, EFT Tapping, and Core Clearing in one personalized path.
                 </h2>
                 <p className="mt-5 text-base leading-8 text-ink/70 sm:text-lg">
-                  Becky’s story gives the coaching a different kind of credibility. She understands the courage,
-                  patience, and structure it takes to rebuild your health from the inside out.
+                  Your journey is unique, and so is Becky's approach. Every session is personalized to meet your specific
+                  needs, helping you create meaningful, lasting change from the inside out.
                 </p>
               </motion.div>
               <motion.div
@@ -633,9 +604,9 @@ function App() {
         <section id="coaching" className="px-5 py-20 sm:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
-              eyebrow="Coaching Services"
-              title="Personal support for your whole life, not just your workouts."
-              text="Every plan combines fitness, nutrition, wellness, and lifestyle habits so progress feels clear, supported, and sustainable."
+              eyebrow="A Holistic Approach"
+              title="Personalized support for body, mind, and emotional balance."
+              text="Becky's approach combines fitness coaching, EFT Tapping, and Core Clearing techniques to help you restore balance and confidence."
             />
             <motion.div
               variants={staggerGroup}
@@ -687,12 +658,12 @@ function App() {
           </div>
         </section>
 
-        <section id="method" className="px-5 py-20 sm:px-8 lg:py-28">
+        <section id="eft" className="px-5 py-20 sm:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl rounded-[2.5rem] bg-ink px-5 py-16 text-soft shadow-card sm:px-10 lg:px-14">
             <SectionHeader
-              eyebrow="Transformation Method"
-              title="A simple path that makes change feel possible."
-              text="The process is designed to remove confusion, create momentum, and help you build consistency without losing yourself in the process."
+              eyebrow="Emotional Freedom Technique (EFT) Tapping"
+              title="Release emotional blocks, reduce stress, and support healing from within."
+              text="EFT Tapping is a powerful mind-body technique that helps address unresolved emotions, limiting beliefs, emotional eating patterns, and negative thought cycles."
               dark
             />
             <motion.div
@@ -728,7 +699,7 @@ function App() {
           </div>
         </section>
 
-        <section className="px-5 py-20 sm:px-8 lg:py-28">
+        <section id="core-clearing" className="px-5 py-20 sm:px-8 lg:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             <motion.div
               variants={fadeUp}
@@ -737,13 +708,18 @@ function App() {
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Why Core Soul</p>
+              <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Core Clearing</p>
               <h2 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-5xl">
-                Strong, soft, focused, and built for real life.
+                Address deep-rooted beliefs and emotional blocks at the root.
               </h2>
               <p className="mt-6 text-lg leading-8 text-ink/72">
-                This is coaching for women who want to feel better in their bodies and calmer in their routines. It is
-                supportive, direct, and made for lasting change.
+                Core Clearing Sessions combine Meridian-Point Tapping, Neuro-Linguistic Programming (NLP), and intuitive
+                Kinesiology to help identify and release subconscious patterns connected to past trauma, fear-based
+                experiences, limiting beliefs, and emotional conditioning.
+              </p>
+              <p className="mt-5 text-lg leading-8 text-ink/72">
+                This holistic approach helps you move beyond old programming and reconnect with your authentic self,
+                allowing you to create lasting transformation from the inside out.
               </p>
             </motion.div>
             <motion.div
@@ -772,39 +748,40 @@ function App() {
           </div>
         </section>
 
-        <section id="testimonials" className="px-5 py-20 sm:px-8 lg:py-28">
+        <section className="px-5 py-20 sm:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
-              eyebrow="Client Stories"
-              title="Support that feels personal, steady, and honest."
-              text="Early feedback is centered on the qualities that matter most: clear structure, realistic habits, and coaching that feels human."
+              eyebrow="EFT Can Support"
+              title="A practical tool for stress, cravings, confidence, and emotional healing."
+              text="By gently tapping on specific meridian points on the body, EFT helps calm the nervous system, restore energetic balance, and create healthier emotional responses."
             />
             <motion.div
               variants={staggerGroup}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="mt-14 grid gap-5 lg:grid-cols-3"
+              className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
             >
-              {testimonials.map((testimonial, index) => (
+              {[
+                'Releasing emotional stress and overwhelm',
+                'Healing unresolved childhood experiences',
+                'Shifting limiting beliefs and self-sabotaging patterns',
+                'Reducing anxiety and emotional reactivity',
+                'Helping manage cravings and emotional eating',
+                'Building confidence, self-awareness, and resilience',
+              ].map((item, index) => (
                 <motion.div
-                  key={`${testimonial.name}-${index}`}
+                  key={item}
                   variants={floatIn}
-                  whileHover={shouldReduceMotion ? undefined : { y: -8, rotate: index === 1 ? 0 : index === 0 ? -0.5 : 0.5 }}
+                  whileHover={shouldReduceMotion ? undefined : { y: -8, rotate: index % 2 === 0 ? -0.4 : 0.4 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ duration: 0.55, delay: index * 0.08 }}
                   className="rounded-[2rem] bg-white/70 p-7 shadow-soft transition hover:bg-white hover:shadow-card"
                 >
-                  <Quote className="mb-8 text-blush" size={32} />
-                  <p className="text-lg leading-8 text-ink/72">“{testimonial.text}”</p>
-                  <div className="mt-7 flex items-center justify-between gap-4 border-t border-olive/10 pt-5">
-                    <p className="font-serif text-2xl font-semibold text-ink">{testimonial.name}</p>
-                    <div className="flex text-olive-dark" aria-label="5 star rating">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <Star key={star} size={15} fill="currentColor" />
-                      ))}
-                    </div>
+                  <div className="mb-7 grid h-12 w-12 place-items-center rounded-2xl bg-blush-light text-olive-dark">
+                    <Check size={22} />
                   </div>
+                  <p className="font-serif text-2xl font-semibold leading-tight text-ink">{item}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -830,11 +807,11 @@ function App() {
               </motion.div>
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-blush-light">Free Consultation</p>
               <h2 className="font-serif text-4xl font-semibold leading-tight sm:text-5xl">
-                Ready for a plan that finally fits your real life?
+                Ready to create meaningful, lasting change?
               </h2>
               <p className="mt-6 max-w-xl text-lg leading-8 text-soft/78">
-                Start with a no-pressure clarity call. You will talk through your goals, your current routine, and the
-                kind of support that would make change feel doable.
+                Start with a no-pressure clarity call. You will talk through where you are, what feels hard, and the kind
+                of fitness, EFT, or Core Clearing support that can help you move forward.
               </p>
               <motion.a
                 href="mailto:hello@coresoulwellness.com"
@@ -853,7 +830,7 @@ function App() {
                 </div>
                 <div>
                   <p className="font-serif text-2xl font-semibold">What happens next</p>
-                  <p className="mt-1 text-sm font-semibold text-ink/58">Simple, calm, and clear from the first email.</p>
+                  <p className="mt-1 text-sm font-semibold text-ink/58">Personalized support from the first conversation.</p>
                 </div>
               </div>
               <motion.div
@@ -895,7 +872,7 @@ function App() {
           <div>
             <Logo />
             <p className="mt-5 max-w-md leading-7 text-ink/68">
-              Fitness, wellness, nutrition, and lifestyle coaching for women ready to build strength, balance, and lasting confidence.
+              Build strength. Create balance. Thrive fully with fitness, EFT Tapping, and Core Clearing support.
             </p>
           </div>
           <div>
