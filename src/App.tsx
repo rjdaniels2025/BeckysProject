@@ -16,7 +16,6 @@ import {
   Star,
   Timer,
   TrendingUp,
-  UserRoundCheck,
   X,
 } from 'lucide-react'
 import { useState, type PointerEvent } from 'react'
@@ -96,18 +95,6 @@ const proofPoints = [
 ]
 
 const transformationPhotos = [
-  {
-    label: 'Before',
-    year: '2020',
-    image: '/transformations/becky-2020.jpg',
-    alt: 'Becky in 2020 before her transformation',
-  },
-  {
-    label: 'Progress',
-    year: '2023',
-    image: '/transformations/becky-2023.jpg',
-    alt: 'Becky in 2023 during her transformation journey',
-  },
   {
     label: 'Transformation',
     year: '2023 to 2026',
@@ -464,16 +451,19 @@ function App() {
               transition={{ duration: 0.6 }}
               className="rounded-[2rem] bg-gradient-to-br from-olive to-olive-dark p-4 shadow-card"
             >
-              <div className="grid aspect-[4/5] place-items-center rounded-[1.55rem] border border-white/15 bg-soft/95 p-8 text-center">
-                <div className="max-w-sm">
-                  <div className="mx-auto mb-6 grid h-28 w-28 place-items-center rounded-full bg-blush-light shadow-soft">
-                    <UserRoundCheck className="text-olive-dark" size={42} />
-                  </div>
+              <div className="overflow-hidden rounded-[1.55rem] border border-white/15 bg-soft/95">
+                <div className="aspect-[4/5] overflow-hidden bg-ink">
+                  <img
+                    src="/transformations/becky-2026.jpg"
+                    alt="Becky in 2026 after her transformation"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+                <div className="p-6 text-center">
                   <p className="font-serif text-3xl font-semibold text-ink">Becky</p>
                   <p className="mt-3 text-sm font-semibold uppercase tracking-[0.2em] text-olive-dark">Certified trainer and holistic practitioner</p>
-                  <p className="mt-5 leading-7 text-ink/68">
-                    Fitness coaching, EFT Tapping, Core Clearing, Reiki, and social service experience brought together with care.
-                  </p>
                 </div>
               </div>
             </motion.div>
@@ -560,14 +550,14 @@ function App() {
             <SectionHeader
               eyebrow="Becky's Transformation"
               title="A real journey of strength, healing, and lasting change."
-              text="These photos show milestones from Becky's own transformation, from where she started to the strength and confidence she has built through sustainable lifestyle change."
+              text="Becky's transformation reflects the same sustainable lifestyle change, strength, and confidence she now helps other women build."
             />
             <motion.div
               variants={staggerGroup}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.18 }}
-              className="mt-14 grid gap-5 lg:grid-cols-[0.78fr_0.78fr_1.2fr]"
+              className="mx-auto mt-14 max-w-4xl"
             >
               {transformationPhotos.map((photo, index) => (
                 <motion.figure
@@ -577,7 +567,7 @@ function App() {
                   transition={{ duration: 0.55, delay: index * 0.08 }}
                   className="group overflow-hidden rounded-[2rem] border border-white/70 bg-white/70 p-3 shadow-soft transition hover:bg-white hover:shadow-card"
                 >
-                  <div className={`overflow-hidden rounded-[1.55rem] bg-ink ${index === 2 ? 'aspect-[1.14/1] lg:aspect-[1.1/1]' : 'aspect-[3/4]'}`}>
+                  <div className="overflow-hidden rounded-[1.55rem] bg-ink aspect-[1.14/1]">
                     <img
                       src={photo.image}
                       alt={photo.alt}
