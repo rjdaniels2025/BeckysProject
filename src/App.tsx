@@ -1,4 +1,5 @@
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { TextRotate } from '@/components/ui/text-rotate'
 import {
   ArrowRight,
   BadgeCheck,
@@ -319,7 +320,17 @@ function App() {
                 CoreSoul Wellness & Fitness
               </div>
               <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[1.02] text-ink sm:text-7xl lg:text-8xl">
-                Build strength. Create balance. Thrive fully.
+                Build{' '}
+                <TextRotate
+                  texts={['strength', 'balance', 'confidence', 'resilience']}
+                  rotationInterval={2600}
+                  staggerDuration={0.018}
+                  staggerFrom="last"
+                  mainClassName="inline-flex align-baseline text-olive-dark"
+                  splitLevelClassName="inline-flex"
+                  elementLevelClassName="inline-block"
+                  transition={{ type: 'spring', damping: 28, stiffness: 360 }}
+                />. Create balance. Thrive fully.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-ink/72 sm:text-xl">
                 Whether you are starting with at-home workouts or building confidence in the gym, Becky has got you every
