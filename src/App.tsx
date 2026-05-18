@@ -1,5 +1,4 @@
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
-import Floating, { FloatingElement } from '@/components/ui/parallax-floating'
 import {
   ArrowRight,
   BadgeCheck,
@@ -99,25 +98,6 @@ const callSteps = [
   { icon: MessageCircle, title: 'Talk through goals', text: 'Share where you are, what has felt hard, and what you want to change.' },
   { icon: ClipboardCheck, title: 'Personalize support', text: 'Explore the fitness, EFT, or Core Clearing approach that fits your specific needs.' },
   { icon: CalendarCheck, title: 'Create lasting change', text: 'Move forward with a session plan designed to support transformation from the inside out.' },
-]
-
-const heroImages = [
-  {
-    url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=900&auto=format&fit=crop',
-    title: 'Woman practicing yoga',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=900&auto=format&fit=crop',
-    title: 'Strength training equipment',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=900&auto=format&fit=crop',
-    title: 'Balanced healthy meal',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=900&auto=format&fit=crop',
-    title: 'Meditation and breathing practice',
-  },
 ]
 
 const fadeUp = {
@@ -310,32 +290,6 @@ function App() {
             animate={shouldReduceMotion ? undefined : { y: [0, 16, 0], x: [0, 10, 0], opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 6.2, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
           />
-          {!shouldReduceMotion ? (
-            <Floating sensitivity={-0.34} easingFactor={0.045} className="pointer-events-none z-0 hidden opacity-90 xl:block">
-              <FloatingElement depth={0.8} className="left-[39%] top-[18%]">
-                <motion.img
-                  src={heroImages[0].url}
-                  alt=""
-                  aria-hidden="true"
-                  className="h-32 w-32 -rotate-6 rounded-2xl border border-white/75 object-cover shadow-card"
-                  initial={{ opacity: 0, y: 18, rotate: -10 }}
-                  animate={{ opacity: 1, y: [0, -10, 0], rotate: [-6, -4, -6] }}
-                  transition={{ opacity: { duration: 0.5, delay: 0.5 }, y: { duration: 6, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 6, repeat: Infinity, ease: 'easeInOut' } }}
-                />
-              </FloatingElement>
-              <FloatingElement depth={1.4} className="right-[16%] top-[17%]">
-                <motion.img
-                  src={heroImages[1].url}
-                  alt=""
-                  aria-hidden="true"
-                  className="h-32 w-32 rotate-6 rounded-2xl border border-white/75 object-cover shadow-card"
-                  initial={{ opacity: 0, y: 18, rotate: 10 }}
-                  animate={{ opacity: 1, y: [0, 12, 0], rotate: [6, 8, 6] }}
-                  transition={{ opacity: { duration: 0.5, delay: 0.75 }, y: { duration: 7, repeat: Infinity, ease: 'easeInOut' }, rotate: { duration: 7, repeat: Infinity, ease: 'easeInOut' } }}
-                />
-              </FloatingElement>
-            </Floating>
-          ) : null}
           <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
             <motion.div
               variants={fadeUp}
@@ -432,50 +386,34 @@ function App() {
                 animate={shouldReduceMotion ? undefined : { boxShadow: ['0 28px 90px rgba(2, 4, 3, 0.14)', '0 34px 105px rgba(128, 130, 106, 0.22)', '0 28px 90px rgba(2, 4, 3, 0.14)'] }}
                 transition={{ duration: 5.8, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <div className="relative overflow-hidden rounded-[1.55rem] bg-ink p-7 text-soft sm:p-8">
+                <div className="relative overflow-hidden rounded-[1.55rem] bg-ink p-5 text-soft sm:p-7">
                   <motion.div
                     className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blush via-blush-light to-olive"
                     animate={shouldReduceMotion ? undefined : { opacity: [0.75, 1, 0.75] }}
                     transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                   />
-                  <div className="relative mx-auto grid h-40 w-full max-w-md place-items-center sm:h-56">
-                    {[0, 0.9].map((delay) => (
-                      <motion.span
-                        key={delay}
-                        aria-hidden="true"
-                        className="absolute inset-0 rounded-full border border-blush-light/30"
-                        animate={shouldReduceMotion ? undefined : { scale: [0.86, 1.24], opacity: [0.45, 0] }}
-                        transition={{ duration: 3.2, repeat: Infinity, ease: 'easeOut', delay }}
-                      />
-                    ))}
-                    <motion.span
-                      aria-hidden="true"
-                      className="absolute inset-3 rounded-full bg-blush-light/10 blur-xl"
-                      animate={shouldReduceMotion ? undefined : { scale: [1, 1.12, 1], opacity: [0.45, 0.8, 0.45] }}
-                      transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
-                    />
+                  <div className="relative grid min-h-56 place-items-center rounded-[1.25rem] border border-white/12 bg-white p-5 shadow-soft sm:min-h-72 sm:p-7">
                     <motion.img
                       src="/brand/core-soul-logo.png"
                       alt="Core Soul Wellness and Fitness brand mark"
-                      animate={shouldReduceMotion ? undefined : { y: [0, -6, 0] }}
-                      whileHover={shouldReduceMotion ? undefined : { scale: 1.08, rotate: 2 }}
-                      transition={{ duration: 4.6, repeat: Infinity, ease: 'easeInOut' }}
-                      className="relative h-full w-full object-contain"
+                      whileHover={shouldReduceMotion ? undefined : { scale: 1.025 }}
+                      transition={{ duration: 0.25, ease: 'easeOut' }}
+                      className="h-full max-h-60 w-full object-contain sm:max-h-72"
                     />
                   </div>
-                  <div className="relative mt-8 rounded-[1.35rem] border border-white/10 bg-white/[0.08] p-5">
-                    <p className="text-sm font-bold uppercase tracking-[0.18em] text-blush-light">Core support</p>
-                    <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  <div className="relative mt-5 rounded-[1.35rem] border border-white/10 bg-white/[0.08] p-5 sm:p-6">
+                    <p className="text-center text-sm font-bold uppercase tracking-[0.18em] text-blush-light">Core support</p>
+                    <div className="mt-5 grid gap-3 sm:grid-cols-2">
                       {['Strength', 'Balance', 'Confidence', 'Healing'].map((item) => (
                         <motion.div
                           key={item}
                           whileHover={shouldReduceMotion ? undefined : { x: 5 }}
-                          className="flex items-center gap-3"
+                          className="flex min-h-14 items-center gap-3 rounded-2xl bg-white/[0.06] px-3"
                         >
                           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-blush text-ink">
                             <Check size={17} />
                           </span>
-                          <p className="font-serif text-2xl text-white">{item}</p>
+                          <p className="font-serif text-xl text-white sm:text-2xl">{item}</p>
                         </motion.div>
                       ))}
                     </div>
