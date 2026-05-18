@@ -155,18 +155,12 @@ function ScrollProgress() {
 
 function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <a href="#home" className="flex items-center gap-3" aria-label="Core Soul Wellness and Fitness home">
+    <a href="#home" className="flex items-center" aria-label="Core Soul Wellness and Fitness home">
       <img
         src="/brand/core-soul-logo.png"
         alt="Core Soul Wellness and Fitness logo"
-        className={compact ? 'h-11 w-11 rounded-full object-contain' : 'h-12 w-12 rounded-full object-contain sm:h-14 sm:w-14'}
+        className={compact ? 'h-14 w-48 object-contain object-left' : 'h-24 w-72 object-contain object-left'}
       />
-      <span className="leading-none">
-        <span className="block font-serif text-lg font-semibold text-ink sm:text-xl">Core Soul</span>
-        <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-olive-dark sm:text-xs">
-          Wellness and Fitness
-        </span>
-      </span>
     </a>
   )
 }
@@ -444,7 +438,7 @@ function App() {
                     animate={shouldReduceMotion ? undefined : { opacity: [0.75, 1, 0.75] }}
                     transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                   />
-                  <div className="relative mx-auto grid h-36 w-36 place-items-center sm:h-48 sm:w-48">
+                  <div className="relative mx-auto grid h-40 w-full max-w-md place-items-center sm:h-56">
                     {[0, 0.9].map((delay) => (
                       <motion.span
                         key={delay}
@@ -466,7 +460,7 @@ function App() {
                       animate={shouldReduceMotion ? undefined : { y: [0, -6, 0] }}
                       whileHover={shouldReduceMotion ? undefined : { scale: 1.08, rotate: 2 }}
                       transition={{ duration: 4.6, repeat: Infinity, ease: 'easeInOut' }}
-                      className="relative h-32 w-32 rounded-full object-contain sm:h-44 sm:w-44"
+                      className="relative h-full w-full object-contain"
                     />
                   </div>
                   <div className="relative mt-8 rounded-[1.35rem] border border-white/10 bg-white/[0.08] p-5">
