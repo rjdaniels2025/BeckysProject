@@ -849,13 +849,13 @@ function App() {
                 <div className="grid gap-3 rounded-[1.1rem] bg-soft p-2 sm:grid-cols-2 sm:rounded-[1.55rem] sm:p-3">
                   {transformationPhotos.map((photo) => (
                     <div key={photo.year} className="overflow-hidden rounded-[0.9rem] bg-ink sm:rounded-[1.2rem]">
-                      <div className="relative aspect-[4/5]">
+                      <div className="relative">
                         <img
                           src={photo.image}
                           alt={photo.alt}
                           loading="lazy"
                           decoding="async"
-                          className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.02]"
+                          className="block h-auto w-full transition duration-500 group-hover:scale-[1.02]"
                         />
                         <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-sm font-bold text-ink shadow-soft">
                           {photo.year}
