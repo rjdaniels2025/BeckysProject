@@ -844,14 +844,28 @@ function App() {
                   transition={{ duration: 0.55, delay: index * 0.08 }}
                   className="group overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/70 p-2 shadow-soft transition hover:bg-white hover:shadow-card sm:rounded-[2rem] sm:p-3"
                 >
-                  <div className="aspect-[4/5] overflow-hidden rounded-[1.1rem] bg-white sm:aspect-[4/3] sm:rounded-[1.55rem] lg:aspect-[5/4]">
-                    <img
-                      src={photo.image}
-                      alt={photo.alt}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.01]"
-                    />
+                  <div className="grid gap-2 rounded-[1.1rem] bg-soft p-2 sm:grid-cols-2 sm:gap-3 sm:rounded-[1.55rem] sm:p-3">
+                    {[
+                      { year: '2023', position: 'left', alt: 'Becky before her transformation in 2023' },
+                      { year: '2026', position: 'right', alt: 'Becky after her transformation in 2026' },
+                    ].map((slice) => (
+                      <div key={slice.year} className="overflow-hidden rounded-[0.9rem] bg-ink sm:rounded-[1.2rem]">
+                        <div className="relative aspect-[4/5]">
+                          <img
+                            src={photo.image}
+                            alt={slice.alt}
+                            loading="lazy"
+                            decoding="async"
+                            className={`h-full w-full object-cover transition duration-500 group-hover:scale-[1.02] ${
+                              slice.position === 'left' ? 'object-left' : 'object-right'
+                            }`}
+                          />
+                          <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-sm font-bold text-ink shadow-soft">
+                            {slice.year}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                   <figcaption className="flex items-center justify-between gap-4 px-2 py-3 sm:py-4">
                     <span>
