@@ -25,49 +25,146 @@ const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Transformation', href: '#transformation' },
   { label: 'Coaching', href: '#coaching' },
+  { label: 'Packages', href: '#packages' },
   { label: 'EFT Tapping', href: '#eft' },
   { label: 'Core Clearing', href: '#core-clearing' },
 ]
 
 const services = [
   {
-    title: 'Healthy Coping Skills',
+    title: 'Fitness Coaching',
     icon: HeartPulse,
-    text: 'Personalized support to build healthier responses, steadier habits, and practical tools you can use in real life.',
-    highlight: 'Support for daily life',
+    text: 'Personalized movement, strength work, nutrition support, and sustainable habits designed around your body, goals, energy, and lifestyle.',
+    highlight: 'Body',
   },
   {
-    title: 'Emotional Regulation',
+    title: 'Mindset Work',
     icon: ShieldCheck,
-    text: 'EFT Tapping and Core Clearing techniques to help calm the nervous system and create healthier emotional responses.',
-    highlight: 'Calm, clarity, resilience',
+    text: 'Support for confidence, self-trust, healthier thought patterns, emotional eating, and the mindset shifts that make change last.',
+    highlight: 'Mind',
   },
   {
-    title: 'Breakthrough Work',
+    title: 'Emotional Healing',
     icon: Sparkles,
-    text: 'Support for emotional blocks, limiting beliefs, cravings, and self-sabotaging patterns that can keep you stuck.',
-    highlight: 'Release old patterns',
+    text: 'EFT Tapping and Core Clearing support to help release unresolved emotions, limiting beliefs, negative thought cycles, and old programming.',
+    highlight: 'Emotions',
   },
   {
-    title: 'Strength and Confidence',
+    title: 'Nervous System Support',
     icon: Dumbbell,
-    text: 'At-home workouts or gym confidence built around your needs, your goals, and your unique starting point.',
-    highlight: 'Fitness that meets you',
+    text: 'Grounding tools and self-regulation practices to help reduce overwhelm, restore balance, and build calmer responses in daily life.',
+    highlight: 'Balance',
   },
+]
+
+const coachingPackages = [
+  {
+    packageName: 'Package 1',
+    title: 'Core Strength Foundations',
+    subtitle: 'Build Strength, Confidence & Healthy Habits',
+    description:
+      'A supportive fitness coaching experience designed to help women feel stronger, healthier, and more confident through sustainable movement, nourishment, and lifestyle habits.',
+    bestFor: 'Women wanting structure, consistency, fitness support, and healthier habits.',
+    options: ['6-Week Program', '12-Week Program', '6-Month Program - includes a complimentary add-on of your choice'],
+    includes: [
+      'Personalized workout program',
+      '1:1 personal training sessions',
+      'Nutrition & macro support',
+      'Meal planning guidance',
+      'Weekly check-ins',
+      'Accountability coaching',
+      'Habit-building support',
+      "Access to women's support community WhatsApp group",
+    ],
+  },
+  {
+    packageName: 'Package 2',
+    title: 'Soul Alignment Wellness Coaching',
+    subtitle: 'Reconnect, Reset & Feel Like Yourself Again',
+    description:
+      'A holistic wellness coaching experience focused on emotional well-being, mindset, nourishment, and creating a more balanced, aligned lifestyle.',
+    bestFor: 'Women feeling overwhelmed, stuck, burnt out, or disconnected from themselves.',
+    options: ['6-Week Program', '12-Week Program', '6-Month Program - includes one complimentary add-on session of your choice'],
+    includes: [
+      'Mindset & lifestyle coaching',
+      'Nutrition & wellness guidance',
+      'Healthy habit support',
+      'EFT Tapping sessions',
+      'Core Clearing sessions',
+      'Weekly accountability check-ins',
+      "Access to women's support community WhatsApp group",
+    ],
+  },
+  {
+    packageName: 'Package 3',
+    title: 'Elevated Soul Transformation',
+    subtitle: 'Mind, Body & Lifestyle Transformation Support',
+    description:
+      'A complete transformational coaching experience combining fitness, nutrition, mindset, and emotional wellness support to create lasting change from the inside out.',
+    bestFor: 'Women ready for deeper transformation, lasting lifestyle change, and high-level support and accountability.',
+    options: ['12-Week Program', '6-Month Program - includes one complimentary add-on session of your choice'],
+    includes: [
+      '1:1 personal training sessions',
+      'Personalized workout program',
+      'Nutrition & macro guidance',
+      'Meal planning & meal prepping support',
+      'Weekly check-ins',
+      'EFT Tapping sessions',
+      'Core Clearing sessions',
+      'Mindset & lifestyle coaching',
+      'Habit & accountability tracking',
+      'Priority messaging support',
+      "Access to women's support community WhatsApp group",
+    ],
+  },
+]
+
+const addOnServices = [
+  {
+    title: 'EFT Tapping Session',
+    detail: '60 min | $115',
+    text: 'Restore emotional balance, calm the nervous system, and create empowered mindset shifts through guided EFT tapping.',
+  },
+  {
+    title: 'Small Group Online Personal Training',
+    detail: '45 - 60 min | $20 per person',
+    text: 'Train together, stay motivated together. Create your own group with friends, family, or coworkers with a minimum of 4 participants.',
+  },
+  {
+    title: 'Core Clearing Session',
+    detail: '60 min | $115',
+    text: 'Gently release limiting beliefs, emotional blocks, and stored patterns to support deeper healing, clarity, and personal transformation.',
+  },
+  {
+    title: '1:1 Online Personal Training',
+    detail: '60 - 75 min | $100',
+    text: 'Personalized online training tailored to support your body, goals, energy, and lifestyle.',
+  },
+]
+
+const fitList = [
+  'You feel disconnected from yourself',
+  'You struggle with confidence, emotional eating, or self-sabotaging patterns',
+  "You are tired of quick fixes and constantly starting over",
+  'You want support that nurtures both your mind and body',
+  'You are ready to create sustainable change from the inside out',
 ]
 
 const method = [
   {
     title: 'Release',
     text: 'Use tapping to help release emotional stress, overwhelm, and unresolved experiences held in the body.',
+    symbol: '/brand/eft-release-symbol.jpeg',
   },
   {
     title: 'Reprogram',
     text: 'Create new neural pathways so unhelpful patterns can shift into calmer, healthier responses.',
+    symbol: '/brand/eft-reprogram-symbol.jpeg',
   },
   {
     title: 'Regulate',
     text: 'Build a lifelong self-regulation tool for emotions, cravings, clarity, grounding, and personal growth.',
+    symbol: '/brand/eft-regulate-symbol.png',
   },
 ]
 
@@ -99,7 +196,7 @@ const transformationPhotos = [
   {
     label: 'Transformation',
     year: '2023 to 2026',
-    image: '/transformations/becky-2023-2026.jpg',
+    image: '/transformations/becky-2023-2026-doc.jpeg',
     alt: 'Side by side transformation photo of Becky from 2023 to 2026',
   },
 ]
@@ -108,6 +205,23 @@ const callSteps = [
   { icon: MessageCircle, title: 'Talk through goals', text: 'Share where you are, what has felt hard, and what you want to change.' },
   { icon: ClipboardCheck, title: 'Personalize support', text: 'Explore the fitness, EFT, or Core Clearing approach that fits your specific needs.' },
   { icon: CalendarCheck, title: 'Create lasting change', text: 'Move forward with a session plan designed to support transformation from the inside out.' },
+]
+
+const storyParagraphs = [
+  'My name is Becky Little. Beyond my certifications, my greatest qualification is the life I have lived.',
+  'I know what it feels like to lose yourself, to feel disconnected from your body, your confidence, your worth, and your identity. I know what it feels like to carry emotional pain while simply trying to survive day by day.',
+  'Born in the UK and raised in Canada from the age of 11, I often felt misunderstood growing up and struggled deeply with my sense of self-worth and belonging. As a teenager, I experienced toxic and abusive relationships and carried emotional pain that I did not yet know how to heal from.',
+  'I became a mother at a young age and, while raising my two sons, faced some of the darkest moments of my life. I battled severe depression, anxiety, borderline personality disorder, addiction, and deep emotional trauma. For many years, I turned to drugs and alcohol to numb the pain I was carrying inside.',
+  'Over time, my addiction led to serious mental and physical health challenges, including psychosis, diabetes, obesity, and complete loss of confidence and identity. By 2020, I reached a breaking point. And that breaking point became the beginning of my transformation.',
+  'In August 2020, I made the life-changing decision to reclaim my life and begin my healing journey. Sobriety was the first step, but I soon realized true healing meant addressing the root causes of my pain emotionally, mentally, physically, and spiritually.',
+  'In 2022, I discovered healing modalities that transformed my life from the inside out. Through nervous system healing, emotional release work, mindset transformation, spiritual healing, and deep inner work, I learned how to reconnect with myself in ways I never thought possible.',
+  'In 2023, my physical health and fitness journey began when I joined a health and fitness group where I connected with other inspirational women, participated in online community workouts, and received nutrition guidance and support.',
+  'In 2025, I decided to invest further in myself by hiring a transformational coach and joining another health and fitness program. This allowed me to expand my knowledge, grow personally, and move to a higher level of self-discovery.',
+  'Today, I am medication-free, have reversed my type 2 diabetes, lost over 110 pounds, regained my confidence, and created a life rooted in strength, self-love, purpose, and authenticity.',
+  "My passion for health, wellness, fitness, and healing continues to grow through supportive women's fitness communities and transformational coaching programs that helped me build strength, confidence, discipline, and self-love from the inside out.",
+  'Now, it is my mission to help other women who feel lost, stuck, overwhelmed, or disconnected from themselves. I know what it feels like to struggle, but I also know that healing and transformation are possible with the right support, guidance, and willingness to grow.',
+  'That is why I created Core Soul Wellness & Fitness for women: to provide a safe, supportive, accessible, and empowering space for others to heal, grow, and become the healthiest and most confident version of themselves.',
+  'If my story resonates with you, I would be honored to support you on your healing, wellness, and fitness journey.',
 ]
 
 const fadeUp = {
@@ -143,15 +257,124 @@ function ScrollProgress() {
   )
 }
 
-function Logo({ compact = false }: { compact?: boolean }) {
+function Logo({ compact = false, href = '#home' }: { compact?: boolean; href?: string }) {
   return (
-    <a href="#home" className="flex items-center" aria-label="Core Soul Wellness and Fitness home">
+    <a href={href} className="flex items-center" aria-label="Core Soul Wellness and Fitness home">
       <img
-        src="/brand/core-soul-logo.png"
+        src="/brand/core-soul-logo-doc.jpeg"
         alt="Core Soul Wellness and Fitness logo"
         className={compact ? 'h-14 w-48 object-contain object-left' : 'h-24 w-72 object-contain object-left'}
       />
     </a>
+  )
+}
+
+function StoryPage() {
+  const shouldReduceMotion = useReducedMotion()
+
+  return (
+    <div className="min-h-screen bg-soft text-ink">
+      <ScrollProgress />
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:font-bold focus:text-soft"
+      >
+        Skip to main content
+      </a>
+      <header className="sticky inset-x-0 top-0 z-50 border-b border-white/60 bg-soft/90 backdrop-blur-xl">
+        <nav className="mx-auto flex min-h-20 max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-3 sm:px-8">
+          <Logo compact href="/" />
+          <div className="flex items-center gap-3">
+            <a
+              href="/#about"
+              className="inline-flex min-h-11 items-center justify-center rounded-full border border-olive/25 bg-white/60 px-5 py-3 text-sm font-bold text-ink transition hover:border-olive hover:bg-white"
+            >
+              Back to Home
+            </a>
+            <a
+              href="mailto:hello@coresoulwellness.com"
+              className="hidden min-h-11 items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-bold text-soft transition hover:bg-olive-dark sm:inline-flex"
+            >
+              Book a Call
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <main id="main-content">
+        <section className="px-5 pb-16 pt-14 sm:px-8 lg:pb-24 lg:pt-20">
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <motion.aside
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.6 }}
+              className="lg:sticky lg:top-28"
+            >
+              <div className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/70 p-3 shadow-card">
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                  {[
+                    { year: '2026', label: 'Now', image: '/transformations/becky-story-2026.jpeg' },
+                    { year: '2020', label: 'Beginning', image: '/transformations/becky-story-2020.jpeg' },
+                  ].map((photo) => (
+                    <figure key={photo.year} className="overflow-hidden rounded-[1.55rem] bg-soft">
+                      <div className="aspect-[4/5] overflow-hidden bg-ink">
+                        <img
+                          src={photo.image}
+                          alt={`Becky Little in ${photo.year}`}
+                          className="h-full w-full object-cover object-top"
+                        />
+                      </div>
+                      <figcaption className="p-4 text-center">
+                        <p className="font-serif text-3xl font-semibold text-olive-dark">{photo.year}</p>
+                        <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-ink/55">{photo.label}</p>
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            </motion.aside>
+
+            <motion.article
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.65, delay: 0.08 }}
+              className="rounded-[2rem] border border-white/70 bg-white/62 p-6 shadow-soft sm:p-9 lg:p-12"
+            >
+              <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Becky's Story</p>
+              <h1 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-6xl">
+                A real journey of healing, strength, and coming back to herself.
+              </h1>
+              <div className="mt-8 grid gap-5 text-lg leading-8 text-ink/72">
+                {storyParagraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                <motion.a
+                  href="mailto:hello@coresoulwellness.com"
+                  whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+                >
+                  Book Your Discovery Call
+                  <ArrowRight className="transition group-hover:translate-x-1" size={19} />
+                </motion.a>
+                <motion.a
+                  href="/"
+                  whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex min-h-14 items-center justify-center rounded-full border border-olive/25 bg-soft px-7 py-4 font-bold text-ink transition hover:border-olive hover:bg-white"
+                >
+                  Return Home
+                </motion.a>
+              </div>
+            </motion.article>
+          </div>
+        </section>
+      </main>
+    </div>
   )
 }
 
@@ -210,6 +433,10 @@ function App() {
   const resetHeroInteraction = () => {
     setSpotlight((current) => ({ ...current, active: false }))
     setHeroTilt({ x: 0, y: 0 })
+  }
+
+  if (window.location.pathname === '/story') {
+    return <StoryPage />
   }
 
   return (
@@ -317,7 +544,7 @@ function App() {
                 >
                   <Sparkles size={16} />
                 </motion.span>
-                CoreSoul Wellness & Fitness
+                Core Soul Wellness & Fitness
               </div>
               <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[1.02] text-ink sm:text-7xl lg:text-8xl">
                 Build{' '}
@@ -333,8 +560,9 @@ function App() {
                 />. Create balance. Thrive fully.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-ink/72 sm:text-xl">
-                Whether you are starting with at-home workouts or building confidence in the gym, Becky has got you every
-                step of the way.
+                Whether you are starting with at-home workouts, building confidence in the gym, or working through
+                emotional blocks that have been holding you back, Becky is here to guide and support you every step of
+                the way.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <motion.a
@@ -343,7 +571,7 @@ function App() {
                   whileTap={{ scale: 0.97 }}
                   className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
                 >
-                  Start Your Journey
+                  Start Your Wellness Journey
                   <ArrowRight className="transition group-hover:translate-x-1" size={19} />
                 </motion.a>
                 <motion.a
@@ -414,7 +642,7 @@ function App() {
                   />
                   <div className="relative grid min-h-56 place-items-center rounded-[1.25rem] border border-white/12 bg-white p-5 shadow-soft sm:min-h-72 sm:p-7">
                     <motion.img
-                      src="/brand/core-soul-logo.png"
+                      src="/brand/core-soul-logo-doc.jpeg"
                       alt="Core Soul Wellness and Fitness brand mark"
                       whileHover={shouldReduceMotion ? undefined : { scale: 1.025 }}
                       transition={{ duration: 0.25, ease: 'easeOut' }}
@@ -465,7 +693,7 @@ function App() {
               <div className="overflow-hidden rounded-[1.55rem] border border-white/15 bg-soft/95">
                 <div className="aspect-[4/5] overflow-hidden bg-ink">
                   <img
-                    src="/transformations/becky-2026.jpg"
+                    src="/transformations/becky-about-doc.jpeg"
                     alt="Becky in 2026 after her transformation"
                     loading="lazy"
                     decoding="async"
@@ -488,16 +716,23 @@ function App() {
             >
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Meet Becky</p>
               <h2 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-5xl">
-                Certified support rooted in lived transformation.
+                The heart behind Core Soul Wellness & Fitness.
               </h2>
+              <p className="mt-5 text-sm font-bold uppercase tracking-[0.2em] text-olive-dark">
+                Certified personal trainer and holistic practitioner
+              </p>
               <p className="mt-6 text-lg leading-8 text-ink/72">
-                Becky is a certified personal trainer through the International Sports Sciences Association, an EFT and
+                Becky is a Certified Personal Trainer through the International Sports Sciences Association, an EFT and
                 Core Clearing Work Practitioner, Reiki Master, and holds a diploma in Social Service Work.
               </p>
               <p className="mt-5 text-lg leading-8 text-ink/72">
-                After overcoming drug addiction, losing over 110 lbs, and reversing Type 2 Diabetes through proper
-                nutrition, movement, and sustainable lifestyle changes, Becky is passionate about helping other women
-                create lasting transformation in both body and mind.
+                After overcoming drug addiction, losing over 110 lbs, and reversing Type 2 Diabetes through nutrition,
+                movement, and sustainable lifestyle changes, Becky discovered her passion for helping other women
+                transform their lives from the inside out.
+              </p>
+              <p className="mt-5 text-lg leading-8 text-ink/72">
+                More than certifications, Becky's greatest qualification is the life she has lived and the transformation
+                she created through healing, resilience, and personal growth.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {['ISSA certified personal trainer', 'EFT and Core Clearing Practitioner', 'Reiki Master', 'Social Service Work diploma'].map((item) => (
@@ -506,6 +741,25 @@ function App() {
                     <span className="font-semibold text-ink/78">{item}</span>
                   </div>
                 ))}
+              </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <motion.a
+                  href="/story"
+                  whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+                >
+                  Read Becky's Story
+                  <ArrowRight className="transition group-hover:translate-x-1" size={19} />
+                </motion.a>
+                <motion.a
+                  href="#cta"
+                  whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex min-h-14 items-center justify-center rounded-full border border-olive/25 bg-white/60 px-7 py-4 font-bold text-ink transition hover:border-olive hover:bg-white"
+                >
+                  Book a Call
+                </motion.a>
               </div>
             </motion.div>
           </div>
@@ -526,31 +780,43 @@ function App() {
                 </div>
                 <p className="mb-3 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">A Holistic Approach</p>
                 <h2 id="proof-heading" className="font-serif text-3xl font-semibold leading-tight text-ink sm:text-5xl">
-                  Fitness coaching, EFT Tapping, and Core Clearing in one personalized path.
+                  Personalized support for your body, mind, and emotional well-being.
                 </h2>
                 <p className="mt-5 text-base leading-8 text-ink/70 sm:text-lg">
-                  Your journey is unique, and so is Becky's approach. Every session is personalized to meet your specific
-                  needs, helping you create meaningful, lasting change from the inside out.
+                  You do not have to navigate this journey alone. If you have been feeling disconnected from yourself,
+                  stuck in unhealthy patterns, emotionally overwhelmed, exhausted, or unsure where to begin, you are not
+                  alone.
                 </p>
+                <p className="mt-4 text-base leading-8 text-ink/70 sm:text-lg">
+                  At Core Soul Wellness & Fitness, we help women reconnect with themselves and create lasting
+                  transformation from the inside out through fitness coaching, mindset work, emotional healing, and
+                  nervous system support.
+                </p>
+                <motion.a
+                  href="#cta"
+                  whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group mt-7 inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+                >
+                  Begin Your Transformation
+                  <ArrowRight className="transition group-hover:translate-x-1" size={19} />
+                </motion.a>
               </motion.div>
               <motion.div
-                variants={staggerGroup}
+                variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.25 }}
-                className="grid gap-4 sm:grid-cols-3"
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.55, delay: 0.08 }}
+                className="rounded-[2rem] bg-soft p-6 shadow-soft"
               >
-                {proofPoints.map((point, index) => (
-                  <motion.div
-                    key={point.value}
-                    variants={floatIn}
-                    transition={{ duration: 0.5, delay: index * 0.08 }}
-                    className="rounded-[1.7rem] bg-soft p-6 shadow-soft"
-                  >
-                    <p className="font-serif text-4xl font-semibold text-olive-dark">{point.value}</p>
-                    <p className="mt-4 text-sm font-semibold leading-6 text-ink/70">{point.label}</p>
-                  </motion.div>
-                ))}
+                <p className="font-serif text-3xl font-semibold leading-tight text-ink">
+                  This is not about quick fixes or extreme routines.
+                </p>
+                <p className="mt-5 text-base leading-8 text-ink/70 sm:text-lg">
+                  It is about creating sustainable habits, emotional freedom, inner strength, and a healthier, more
+                  aligned version of yourself. True healing happens when the mind and body work together.
+                </p>
               </motion.div>
             </div>
           </div>
@@ -561,7 +827,7 @@ function App() {
             <SectionHeader
               eyebrow="Becky's Transformation"
               title="A real journey of strength, healing, and lasting change."
-              text="Becky's transformation reflects the same sustainable lifestyle change, strength, and confidence she now helps other women build."
+              text="Through fitness, mindset work, emotional healing, and personal growth, Becky transformed her life from the inside out. Today, she helps women create sustainable change, rebuild confidence, and reconnect with the strongest version of themselves."
             />
             <motion.div
               variants={staggerGroup}
@@ -599,6 +865,17 @@ function App() {
                 </motion.figure>
               ))}
             </motion.div>
+            <div className="mt-10 flex justify-center">
+              <motion.a
+                href="#cta"
+                whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
+                whileTap={{ scale: 0.97 }}
+                className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+              >
+                Start Your Wellness Journey
+                <ArrowRight className="transition group-hover:translate-x-1" size={19} />
+              </motion.a>
+            </div>
           </div>
         </section>
 
@@ -607,7 +884,7 @@ function App() {
             <SectionHeader
               eyebrow="A Holistic Approach"
               title="Personalized support for body, mind, and emotional balance."
-              text="Becky's approach combines fitness coaching, EFT Tapping, and Core Clearing techniques to help you restore balance and confidence."
+              text="Healing and strength can exist together. Becky offers a supportive and empowering space for women who are ready to create sustainable lifestyle change."
             />
             <motion.div
               variants={staggerGroup}
@@ -656,6 +933,17 @@ function App() {
                 )
               })}
             </motion.div>
+            <div className="mt-10 flex justify-center">
+              <motion.a
+                href="#cta"
+                whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
+                whileTap={{ scale: 0.97 }}
+                className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-ink px-7 py-4 font-bold text-soft shadow-soft transition hover:bg-olive-dark"
+              >
+                Work with Becky
+                <ArrowRight className="transition group-hover:translate-x-1" size={19} />
+              </motion.a>
+            </div>
           </div>
         </section>
 
@@ -686,9 +974,9 @@ function App() {
                   <div className="mb-8 flex items-center justify-between gap-4">
                     <motion.span
                       whileHover={shouldReduceMotion ? undefined : { rotate: 8 }}
-                      className="inline-grid h-12 w-12 place-items-center rounded-full bg-blush text-ink font-bold"
+                      className="inline-grid h-14 w-14 place-items-center overflow-hidden rounded-full bg-white p-2 text-ink"
                     >
-                      {index + 1}
+                      <img src={step.symbol} alt="" aria-hidden="true" className="h-full w-full object-contain" />
                     </motion.span>
                     <Timer className="text-blush-light/70" size={22} />
                   </div>
@@ -697,6 +985,17 @@ function App() {
                 </motion.div>
               ))}
             </motion.div>
+            <div className="mt-10 flex justify-center">
+              <motion.a
+                href="#cta"
+                whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
+                whileTap={{ scale: 0.97 }}
+                className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-soft px-7 py-4 font-bold text-ink shadow-soft transition hover:bg-blush-light"
+              >
+                Work with Becky
+                <ArrowRight className="transition group-hover:translate-x-1" size={19} />
+              </motion.a>
+            </div>
           </div>
         </section>
 
@@ -711,17 +1010,30 @@ function App() {
             >
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Core Clearing</p>
               <h2 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-5xl">
-                Address deep-rooted beliefs and emotional blocks at the root.
+                Release limiting beliefs and reconnect with your authentic self.
               </h2>
               <p className="mt-6 text-lg leading-8 text-ink/72">
-                Core Clearing Sessions combine Meridian-Point Tapping, Neuro-Linguistic Programming (NLP), and intuitive
-                Kinesiology to help identify and release subconscious patterns connected to past trauma, fear-based
-                experiences, limiting beliefs, and emotional conditioning.
+                Core Clearing Sessions are designed to help identify and release subconscious patterns connected to past
+                trauma, fear-based experiences, emotional conditioning, and limiting beliefs.
               </p>
               <p className="mt-5 text-lg leading-8 text-ink/72">
-                This holistic approach helps you move beyond old programming and reconnect with your authentic self,
-                allowing you to create lasting transformation from the inside out.
+                Using a unique combination of Meridian-Point Tapping, Neuro-Linguistic Programming (NLP), and Intuitive
+                Kinesiology, Becky helps women move beyond old programming and create meaningful, lasting change from
+                within.
               </p>
+              <p className="mt-5 text-lg leading-8 text-ink/72">
+                This gentle yet powerful process helps you reconnect with yourself, shift your mindset, and move forward
+                with greater clarity, confidence, and emotional freedom.
+              </p>
+              <motion.a
+                href="#cta"
+                whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
+                whileTap={{ scale: 0.97 }}
+                className="group mt-8 inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+              >
+                You Don't Have To Do This Alone
+                <ArrowRight className="transition group-hover:translate-x-1" size={19} />
+              </motion.a>
             </motion.div>
             <motion.div
               variants={staggerGroup}
@@ -749,30 +1061,102 @@ function App() {
           </div>
         </section>
 
+        <section className="px-5 py-14 sm:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-white/70 bg-white/55 p-6 shadow-soft sm:p-10 lg:p-12">
+            <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+              <div>
+                <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">More Than Fitness</p>
+                <h2 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+                  A journey back to yourself.
+                </h2>
+              </div>
+              <div className="grid gap-4 text-lg leading-8 text-ink/72">
+                <p>
+                  Healing and strength can exist together. This journey is about more than fitness. It is about becoming
+                  the strongest, most aligned version of yourself.
+                </p>
+                <p>
+                  Becky offers a supportive and empowering space for women who are ready to create sustainable lifestyle
+                  change.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="packages" className="px-5 py-20 sm:px-8 lg:py-28">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              eyebrow="Services & Coaching Packages"
+              title="Choose the support that fits where you are."
+              text="Each package is delivered online or virtually, with personalized coaching and access to a women's support community WhatsApp group."
+            />
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }}
+              className="mt-14 grid gap-5 lg:grid-cols-3"
+            >
+              {coachingPackages.map((item, index) => (
+                <motion.article
+                  key={item.title}
+                  variants={floatIn}
+                  transition={{ duration: 0.55, delay: index * 0.08 }}
+                  className="flex flex-col rounded-[2rem] border border-white/70 bg-white/68 p-7 shadow-soft"
+                >
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-olive-dark">{item.packageName}</p>
+                  <h3 className="mt-4 font-serif text-3xl font-semibold leading-tight text-ink">{item.title}</h3>
+                  <p className="mt-3 font-bold text-ink/72">{item.subtitle}</p>
+                  <p className="mt-5 leading-7 text-ink/68">{item.description}</p>
+                  <div className="mt-6 rounded-2xl bg-soft p-4">
+                    <p className="text-sm font-bold text-ink">Best for:</p>
+                    <p className="mt-2 text-sm leading-6 text-ink/68">{item.bestFor}</p>
+                  </div>
+                  <div className="mt-6">
+                    <p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">Includes</p>
+                    <div className="grid gap-2">
+                      {item.includes.map((include) => (
+                        <div key={include} className="flex gap-3 text-sm leading-6 text-ink/70">
+                          <Check className="mt-0.5 shrink-0 text-olive-dark" size={17} />
+                          <span>{include}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="mt-6">
+                    <p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">Program Options</p>
+                    <div className="grid gap-2">
+                      {item.options.map((option) => (
+                        <span key={option} className="rounded-full bg-blush-light px-4 py-2 text-sm font-bold text-ink/76">
+                          {option}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.article>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
         <section className="px-5 py-20 sm:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
-              eyebrow="EFT Can Support"
-              title="A practical tool for stress, cravings, confidence, and emotional healing."
-              text="By gently tapping on specific meridian points on the body, EFT helps calm the nervous system, restore energetic balance, and create healthier emotional responses."
+              eyebrow="Add-On Services & Single Sessions"
+              title="Focused support when you need one session or extra care."
+              text="Book a single session or add targeted support to your coaching package."
             />
             <motion.div
               variants={staggerGroup}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+              className="mt-14 grid gap-5 md:grid-cols-2"
             >
-              {[
-                'Releasing emotional stress and overwhelm',
-                'Healing unresolved childhood experiences',
-                'Shifting limiting beliefs and self-sabotaging patterns',
-                'Reducing anxiety and emotional reactivity',
-                'Helping manage cravings and emotional eating',
-                'Building confidence, self-awareness, and resilience',
-              ].map((item, index) => (
+              {addOnServices.map((item, index) => (
                 <motion.div
-                  key={item}
+                  key={item.title}
                   variants={floatIn}
                   whileHover={shouldReduceMotion ? undefined : { y: -8, rotate: index % 2 === 0 ? -0.4 : 0.4 }}
                   whileTap={{ scale: 0.98 }}
@@ -782,7 +1166,71 @@ function App() {
                   <div className="mb-7 grid h-12 w-12 place-items-center rounded-2xl bg-blush-light text-olive-dark">
                     <Check size={22} />
                   </div>
-                  <p className="font-serif text-2xl font-semibold leading-tight text-ink">{item}</p>
+                  <h3 className="font-serif text-3xl font-semibold leading-tight text-ink">{item.title}</h3>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.14em] text-olive-dark">{item.detail}</p>
+                  <p className="mt-4 leading-7 text-ink/68">{item.text}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+            <div className="mt-10 flex justify-center">
+              <motion.a
+                href="#cta"
+                whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
+                whileTap={{ scale: 0.97 }}
+                className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+              >
+                Let's Connect - Book Your Call
+                <ArrowRight className="transition group-hover:translate-x-1" size={19} />
+              </motion.a>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-5 py-20 sm:px-8 lg:py-28">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">You Deserve This</p>
+              <h2 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+                You deserve to feel strong, confident, and aligned.
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-ink/72">
+                It is about creating a lifestyle that supports your well-being, builds confidence, and helps you become
+                the strongest, healthiest, and most aligned version of yourself.
+              </p>
+              <motion.a
+                href="#cta"
+                whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
+                whileTap={{ scale: 0.97 }}
+                className="group mt-8 inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-ink px-7 py-4 font-bold text-soft shadow-soft transition hover:bg-olive-dark"
+              >
+                Let's Create Sustainable Change Together
+                <ArrowRight className="transition group-hover:translate-x-1" size={19} />
+              </motion.a>
+            </motion.div>
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="grid gap-4"
+            >
+              {fitList.map((item, index) => (
+                <motion.div
+                  key={item}
+                  variants={floatIn}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  className="flex items-center gap-4 rounded-3xl bg-white/65 p-5 shadow-soft"
+                >
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-olive text-white">
+                    <Check size={18} />
+                  </span>
+                  <p className="font-semibold text-ink/78">{item}</p>
                 </motion.div>
               ))}
             </motion.div>
