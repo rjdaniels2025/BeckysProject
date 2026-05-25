@@ -834,7 +834,7 @@ function App() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.18 }}
-              className="mx-auto mt-10 max-w-5xl sm:mt-14"
+              className="mx-auto mt-10 max-w-4xl sm:mt-14"
             >
               {transformationPhotos.map((photo, index) => (
                 <motion.figure
@@ -844,7 +844,7 @@ function App() {
                   transition={{ duration: 0.55, delay: index * 0.08 }}
                   className="group overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/70 p-2 shadow-soft transition hover:bg-white hover:shadow-card sm:rounded-[2rem] sm:p-3"
                 >
-                  <div className="aspect-[883/323] overflow-hidden rounded-[1.1rem] bg-white sm:rounded-[1.55rem]">
+                  <div className="aspect-[4/5] overflow-hidden rounded-[1.1rem] bg-white sm:aspect-[4/3] sm:rounded-[1.55rem] lg:aspect-[5/4]">
                     <img
                       src={photo.image}
                       alt={photo.alt}
