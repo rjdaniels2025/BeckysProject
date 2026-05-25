@@ -316,12 +316,12 @@ function StoryPage() {
               className="lg:sticky lg:top-28"
             >
               <div className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/70 p-3 shadow-card">
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-1 xl:grid-cols-2">
                   {[
                     { year: '2026', label: 'Now', image: '/transformations/becky-story-2026.jpeg' },
                     { year: '2020', label: 'Beginning', image: '/transformations/becky-story-2020.jpeg' },
                   ].map((photo) => (
-                    <figure key={photo.year} className="overflow-hidden rounded-[1.55rem] bg-soft">
+                    <figure key={photo.year} className="overflow-hidden rounded-[1rem] bg-soft sm:rounded-[1.55rem]">
                       <div className="aspect-[4/5] overflow-hidden bg-ink">
                         <img
                           src={photo.image}
@@ -329,9 +329,11 @@ function StoryPage() {
                           className="h-full w-full object-cover object-top"
                         />
                       </div>
-                      <figcaption className="p-4 text-center">
-                        <p className="font-serif text-3xl font-semibold text-olive-dark">{photo.year}</p>
-                        <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-ink/55">{photo.label}</p>
+                      <figcaption className="p-3 text-center sm:p-4">
+                        <p className="font-serif text-2xl font-semibold text-olive-dark sm:text-3xl">{photo.year}</p>
+                        <p className="mt-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-ink/55 sm:text-xs sm:tracking-[0.18em]">
+                          {photo.label}
+                        </p>
                       </figcaption>
                     </figure>
                   ))}
