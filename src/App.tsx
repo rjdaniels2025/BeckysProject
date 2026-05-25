@@ -846,7 +846,7 @@ function App() {
                 transition={{ duration: 0.55 }}
                 className="group overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/70 p-2 shadow-soft transition hover:bg-white hover:shadow-card sm:rounded-[2rem] sm:p-3"
               >
-                <div className="grid gap-3 rounded-[1.1rem] bg-soft p-2 sm:grid-cols-2 sm:rounded-[1.55rem] sm:p-3">
+                <div className="grid grid-cols-2 gap-2 rounded-[1.1rem] bg-soft p-2 sm:gap-3 sm:rounded-[1.55rem] sm:p-3">
                   {transformationPhotos.map((photo) => (
                     <div key={photo.year} className="overflow-hidden rounded-[0.9rem] bg-ink sm:rounded-[1.2rem]">
                       <div className="relative">
@@ -857,7 +857,7 @@ function App() {
                           decoding="async"
                           className="block h-auto w-full transition duration-500 group-hover:scale-[1.02]"
                         />
-                        <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-sm font-bold text-ink shadow-soft">
+                        <span className="absolute bottom-2 left-2 rounded-full bg-white/90 px-2.5 py-1 text-xs font-bold text-ink shadow-soft sm:bottom-3 sm:left-3 sm:px-3 sm:text-sm">
                           {photo.year}
                         </span>
                       </div>
