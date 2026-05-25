@@ -194,10 +194,14 @@ const proofPoints = [
 
 const transformationPhotos = [
   {
-    label: 'Transformation',
-    year: '2023 to 2026',
-    image: '/transformations/becky-2023-2026-doc.jpeg',
-    alt: 'Side by side transformation photo of Becky from 2023 to 2026',
+    year: '2023',
+    image: '/transformations/becky-transformation-2023-portrait.jpeg',
+    alt: 'Becky before her transformation in 2023',
+  },
+  {
+    year: '2026',
+    image: '/transformations/becky-transformation-2026-portrait.jpeg',
+    alt: 'Becky after her transformation in 2026',
   },
 ]
 
@@ -836,48 +840,40 @@ function App() {
               viewport={{ once: true, amount: 0.18 }}
               className="mx-auto mt-10 max-w-4xl sm:mt-14"
             >
-              {transformationPhotos.map((photo, index) => (
-                <motion.figure
-                  key={`${photo.label}-${photo.year}`}
-                  variants={floatIn}
-                  whileHover={shouldReduceMotion ? undefined : { y: -8, scale: 1.01 }}
-                  transition={{ duration: 0.55, delay: index * 0.08 }}
-                  className="group overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/70 p-2 shadow-soft transition hover:bg-white hover:shadow-card sm:rounded-[2rem] sm:p-3"
-                >
-                  <div className="grid gap-2 rounded-[1.1rem] bg-soft p-2 sm:grid-cols-2 sm:gap-3 sm:rounded-[1.55rem] sm:p-3">
-                    {[
-                      { year: '2023', position: 'left', alt: 'Becky before her transformation in 2023' },
-                      { year: '2026', position: 'right', alt: 'Becky after her transformation in 2026' },
-                    ].map((slice) => (
-                      <div key={slice.year} className="overflow-hidden rounded-[0.9rem] bg-ink sm:rounded-[1.2rem]">
-                        <div className="relative aspect-[4/5]">
-                          <img
-                            src={photo.image}
-                            alt={slice.alt}
-                            loading="lazy"
-                            decoding="async"
-                            className={`h-full w-full object-cover transition duration-500 group-hover:scale-[1.02] ${
-                              slice.position === 'left' ? 'object-left' : 'object-right'
-                            }`}
-                          />
-                          <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-sm font-bold text-ink shadow-soft">
-                            {slice.year}
-                          </span>
-                        </div>
+              <motion.figure
+                variants={floatIn}
+                whileHover={shouldReduceMotion ? undefined : { y: -8, scale: 1.01 }}
+                transition={{ duration: 0.55 }}
+                className="group overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/70 p-2 shadow-soft transition hover:bg-white hover:shadow-card sm:rounded-[2rem] sm:p-3"
+              >
+                <div className="grid gap-3 rounded-[1.1rem] bg-soft p-2 sm:grid-cols-2 sm:rounded-[1.55rem] sm:p-3">
+                  {transformationPhotos.map((photo) => (
+                    <div key={photo.year} className="overflow-hidden rounded-[0.9rem] bg-ink sm:rounded-[1.2rem]">
+                      <div className="relative aspect-[4/5]">
+                        <img
+                          src={photo.image}
+                          alt={photo.alt}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.02]"
+                        />
+                        <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-sm font-bold text-ink shadow-soft">
+                          {photo.year}
+                        </span>
                       </div>
-                    ))}
-                  </div>
-                  <figcaption className="flex items-center justify-between gap-4 px-2 py-3 sm:py-4">
+                    </div>
+                  ))}
+                </div>
+                <figcaption className="flex items-center justify-between gap-4 px-2 py-3 sm:py-4">
                     <span>
-                      <span className="block text-xs font-bold uppercase tracking-[0.2em] text-olive-dark">{photo.label}</span>
-                      <span className="mt-1 block font-serif text-2xl font-semibold text-ink">{photo.year}</span>
+                      <span className="block text-xs font-bold uppercase tracking-[0.2em] text-olive-dark">Transformation</span>
+                      <span className="mt-1 block font-serif text-2xl font-semibold text-ink">2023 to 2026</span>
                     </span>
                     <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-blush-light text-olive-dark">
                       <TrendingUp size={20} />
                     </span>
-                  </figcaption>
-                </motion.figure>
-              ))}
+                </figcaption>
+              </motion.figure>
             </motion.div>
             <div className="mt-10 flex justify-center">
               <motion.a
