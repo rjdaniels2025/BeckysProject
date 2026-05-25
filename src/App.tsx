@@ -343,7 +343,7 @@ function StoryPage() {
               className="rounded-[2rem] border border-white/70 bg-white/62 p-6 shadow-soft sm:p-9 lg:p-12"
             >
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Becky's Story</p>
-              <h1 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-6xl">
+              <h1 className="font-serif text-3xl font-semibold leading-tight text-ink sm:text-6xl">
                 A real journey of healing, strength, and coming back to herself.
               </h1>
               <div className="mt-8 grid gap-5 text-lg leading-8 text-ink/72">
@@ -356,7 +356,7 @@ function StoryPage() {
                   href="mailto:hello@coresoulwellness.com"
                   whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                   whileTap={{ scale: 0.97 }}
-                  className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+                  className="group inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 text-center font-bold text-white shadow-soft transition hover:bg-olive-dark sm:w-auto"
                 >
                   Book Your Discovery Call
                   <ArrowRight className="transition group-hover:translate-x-1" size={19} />
@@ -365,7 +365,7 @@ function StoryPage() {
                   href="/"
                   whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-flex min-h-14 items-center justify-center rounded-full border border-olive/25 bg-soft px-7 py-4 font-bold text-ink transition hover:border-olive hover:bg-white"
+                  className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-olive/25 bg-soft px-7 py-4 text-center font-bold text-ink transition hover:border-olive hover:bg-white sm:w-auto"
                 >
                   Return Home
                 </motion.a>
@@ -401,7 +401,7 @@ function SectionHeader({
       <p className={`mb-4 text-sm font-bold uppercase tracking-[0.24em] ${dark ? 'text-blush-light' : 'text-olive-dark'}`}>
         {eyebrow}
       </p>
-      <h2 className={`font-serif text-4xl font-semibold leading-tight sm:text-5xl ${dark ? 'text-white' : 'text-ink'}`}>{title}</h2>
+      <h2 className={`font-serif text-3xl font-semibold leading-tight sm:text-5xl ${dark ? 'text-white' : 'text-ink'}`}>{title}</h2>
       <p className={`mt-5 text-base leading-8 sm:text-lg ${dark ? 'text-soft/72' : 'text-ink/70'}`}>{text}</p>
     </motion.div>
   )
@@ -546,7 +546,7 @@ function App() {
                 </motion.span>
                 Core Soul Wellness & Fitness
               </div>
-              <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[1.02] text-ink sm:text-7xl lg:text-8xl">
+              <h1 className="max-w-4xl font-serif text-4xl font-semibold leading-[1.05] text-ink sm:text-6xl lg:text-7xl xl:text-8xl">
                 Build{' '}
                 <TextRotate
                   texts={['strength', 'balance', 'confidence', 'resilience']}
@@ -569,7 +569,7 @@ function App() {
                   href="#cta"
                   whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                   whileTap={{ scale: 0.97 }}
-                  className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+                  className="group inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 text-center font-bold text-white shadow-soft transition hover:bg-olive-dark sm:w-auto"
                 >
                   Start Your Wellness Journey
                   <ArrowRight className="transition group-hover:translate-x-1" size={19} />
@@ -578,7 +578,7 @@ function App() {
                   href="#coaching"
                   whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-flex min-h-14 items-center justify-center rounded-full border border-olive/25 bg-white/60 px-7 py-4 font-bold text-ink transition hover:border-olive hover:bg-white"
+                  className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-olive/25 bg-white/60 px-7 py-4 text-center font-bold text-ink transition hover:border-olive hover:bg-white sm:w-auto"
                 >
                   Explore Coaching
                 </motion.a>
@@ -715,7 +715,7 @@ function App() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Meet Becky</p>
-              <h2 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+              <h2 className="font-serif text-3xl font-semibold leading-tight text-ink sm:text-5xl">
                 The heart behind Core Soul Wellness & Fitness.
               </h2>
               <p className="mt-5 text-sm font-bold uppercase tracking-[0.2em] text-olive-dark">
@@ -747,7 +747,7 @@ function App() {
                   href="/story"
                   whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                   whileTap={{ scale: 0.97 }}
-                  className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+                  className="group inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 text-center font-bold text-white shadow-soft transition hover:bg-olive-dark sm:w-auto"
                 >
                   Read Becky's Story
                   <ArrowRight className="transition group-hover:translate-x-1" size={19} />
@@ -756,7 +756,7 @@ function App() {
                   href="#cta"
                   whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                   whileTap={{ scale: 0.97 }}
-                  className="inline-flex min-h-14 items-center justify-center rounded-full border border-olive/25 bg-white/60 px-7 py-4 font-bold text-ink transition hover:border-olive hover:bg-white"
+                  className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-olive/25 bg-white/60 px-7 py-4 text-center font-bold text-ink transition hover:border-olive hover:bg-white sm:w-auto"
                 >
                   Book a Call
                 </motion.a>
@@ -766,7 +766,7 @@ function App() {
         </section>
 
         <section className="px-5 py-12 sm:px-8 lg:py-20" aria-labelledby="proof-heading">
-          <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-white/70 bg-white/55 p-5 shadow-soft sm:p-8 lg:p-10">
+          <div className="mx-auto max-w-7xl rounded-[1.75rem] border border-white/70 bg-white/55 p-5 shadow-soft sm:rounded-[2.5rem] sm:p-8 lg:p-10">
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <motion.div
                 variants={fadeUp}
@@ -796,7 +796,7 @@ function App() {
                   href="#cta"
                   whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                   whileTap={{ scale: 0.97 }}
-                  className="group mt-7 inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+                  className="group mt-7 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 text-center font-bold text-white shadow-soft transition hover:bg-olive-dark sm:w-auto"
                 >
                   Begin Your Transformation
                   <ArrowRight className="transition group-hover:translate-x-1" size={19} />
@@ -834,7 +834,7 @@ function App() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.18 }}
-              className="mx-auto mt-14 max-w-4xl"
+              className="mx-auto mt-10 max-w-5xl sm:mt-14"
             >
               {transformationPhotos.map((photo, index) => (
                 <motion.figure
@@ -842,18 +842,18 @@ function App() {
                   variants={floatIn}
                   whileHover={shouldReduceMotion ? undefined : { y: -8, scale: 1.01 }}
                   transition={{ duration: 0.55, delay: index * 0.08 }}
-                  className="group overflow-hidden rounded-[2rem] border border-white/70 bg-white/70 p-3 shadow-soft transition hover:bg-white hover:shadow-card"
+                  className="group overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/70 p-2 shadow-soft transition hover:bg-white hover:shadow-card sm:rounded-[2rem] sm:p-3"
                 >
-                  <div className="overflow-hidden rounded-[1.55rem] bg-ink aspect-[1.14/1]">
+                  <div className="aspect-[883/323] overflow-hidden rounded-[1.1rem] bg-white sm:rounded-[1.55rem]">
                     <img
                       src={photo.image}
                       alt={photo.alt}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                      className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.01]"
                     />
                   </div>
-                  <figcaption className="flex items-center justify-between gap-4 px-2 py-4">
+                  <figcaption className="flex items-center justify-between gap-4 px-2 py-3 sm:py-4">
                     <span>
                       <span className="block text-xs font-bold uppercase tracking-[0.2em] text-olive-dark">{photo.label}</span>
                       <span className="mt-1 block font-serif text-2xl font-semibold text-ink">{photo.year}</span>
@@ -870,7 +870,7 @@ function App() {
                 href="#cta"
                 whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                 whileTap={{ scale: 0.97 }}
-                className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+                className="group inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 text-center font-bold text-white shadow-soft transition hover:bg-olive-dark sm:w-auto"
               >
                 Start Your Wellness Journey
                 <ArrowRight className="transition group-hover:translate-x-1" size={19} />
@@ -938,7 +938,7 @@ function App() {
                 href="#cta"
                 whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                 whileTap={{ scale: 0.97 }}
-                className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-ink px-7 py-4 font-bold text-soft shadow-soft transition hover:bg-olive-dark"
+                className="group inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-ink px-7 py-4 text-center font-bold text-soft shadow-soft transition hover:bg-olive-dark sm:w-auto"
               >
                 Work with Becky
                 <ArrowRight className="transition group-hover:translate-x-1" size={19} />
@@ -948,7 +948,7 @@ function App() {
         </section>
 
         <section id="eft" className="px-5 py-20 sm:px-8 lg:py-28">
-          <div className="mx-auto max-w-7xl rounded-[2.5rem] bg-ink px-5 py-16 text-soft shadow-card sm:px-10 lg:px-14">
+          <div className="mx-auto max-w-7xl rounded-[1.75rem] bg-ink px-5 py-14 text-soft shadow-card sm:rounded-[2.5rem] sm:px-10 sm:py-16 lg:px-14">
             <SectionHeader
               eyebrow="Emotional Freedom Technique (EFT) Tapping"
               title="Release emotional blocks, reduce stress, and support healing from within."
@@ -990,7 +990,7 @@ function App() {
                 href="#cta"
                 whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                 whileTap={{ scale: 0.97 }}
-                className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-soft px-7 py-4 font-bold text-ink shadow-soft transition hover:bg-blush-light"
+                className="group inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-soft px-7 py-4 text-center font-bold text-ink shadow-soft transition hover:bg-blush-light sm:w-auto"
               >
                 Work with Becky
                 <ArrowRight className="transition group-hover:translate-x-1" size={19} />
@@ -1009,7 +1009,7 @@ function App() {
               transition={{ duration: 0.6 }}
             >
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">Core Clearing</p>
-              <h2 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+              <h2 className="font-serif text-3xl font-semibold leading-tight text-ink sm:text-5xl">
                 Release limiting beliefs and reconnect with your authentic self.
               </h2>
               <p className="mt-6 text-lg leading-8 text-ink/72">
@@ -1029,7 +1029,7 @@ function App() {
                 href="#cta"
                 whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                 whileTap={{ scale: 0.97 }}
-                className="group mt-8 inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+                className="group mt-8 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 text-center font-bold text-white shadow-soft transition hover:bg-olive-dark sm:w-auto"
               >
                 You Don't Have To Do This Alone
                 <ArrowRight className="transition group-hover:translate-x-1" size={19} />
@@ -1062,11 +1062,11 @@ function App() {
         </section>
 
         <section className="px-5 py-14 sm:px-8 lg:py-20">
-          <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-white/70 bg-white/55 p-6 shadow-soft sm:p-10 lg:p-12">
+          <div className="mx-auto max-w-7xl rounded-[1.75rem] border border-white/70 bg-white/55 p-6 shadow-soft sm:rounded-[2.5rem] sm:p-10 lg:p-12">
             <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
               <div>
                 <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">More Than Fitness</p>
-                <h2 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+                <h2 className="font-serif text-3xl font-semibold leading-tight text-ink sm:text-5xl">
                   A journey back to yourself.
                 </h2>
               </div>
@@ -1177,7 +1177,7 @@ function App() {
                 href="#cta"
                 whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                 whileTap={{ scale: 0.97 }}
-                className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 font-bold text-white shadow-soft transition hover:bg-olive-dark"
+                className="group inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-olive px-7 py-4 text-center font-bold text-white shadow-soft transition hover:bg-olive-dark sm:w-auto"
               >
                 Let's Connect - Book Your Call
                 <ArrowRight className="transition group-hover:translate-x-1" size={19} />
@@ -1196,7 +1196,7 @@ function App() {
               transition={{ duration: 0.6 }}
             >
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-olive-dark">You Deserve This</p>
-              <h2 className="font-serif text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+              <h2 className="font-serif text-3xl font-semibold leading-tight text-ink sm:text-5xl">
                 You deserve to feel strong, confident, and aligned.
               </h2>
               <p className="mt-6 text-lg leading-8 text-ink/72">
@@ -1207,7 +1207,7 @@ function App() {
                 href="#cta"
                 whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.025 }}
                 whileTap={{ scale: 0.97 }}
-                className="group mt-8 inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-ink px-7 py-4 font-bold text-soft shadow-soft transition hover:bg-olive-dark"
+                className="group mt-8 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-ink px-7 py-4 text-center font-bold text-soft shadow-soft transition hover:bg-olive-dark sm:w-auto"
               >
                 Let's Create Sustainable Change Together
                 <ArrowRight className="transition group-hover:translate-x-1" size={19} />
@@ -1255,7 +1255,7 @@ function App() {
                 <Leaf size={34} />
               </motion.div>
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-blush-light">Free Consultation</p>
-              <h2 className="font-serif text-4xl font-semibold leading-tight sm:text-5xl">
+              <h2 className="font-serif text-3xl font-semibold leading-tight sm:text-5xl">
                 Ready to create meaningful, lasting change?
               </h2>
               <p className="mt-6 max-w-xl text-lg leading-8 text-soft/78">
@@ -1266,7 +1266,7 @@ function App() {
                 href="mailto:hello@coresoulwellness.com"
                 whileHover={shouldReduceMotion ? undefined : { y: -4, scale: 1.03 }}
                 whileTap={{ scale: 0.96 }}
-                className="group mt-9 inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-soft px-8 py-4 font-bold text-ink transition hover:bg-blush-light"
+                className="group mt-9 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-soft px-8 py-4 text-center font-bold text-ink transition hover:bg-blush-light sm:w-auto"
               >
                 Book a Free Consultation
                 <ArrowRight className="transition group-hover:translate-x-1" size={19} />
