@@ -708,7 +708,7 @@ function App() {
                 </div>
                 <div className="p-6 text-center">
                   <p className="font-serif text-3xl font-semibold text-ink">Becky</p>
-                  <p className="mt-3 text-sm font-semibold uppercase tracking-[0.2em] text-olive-dark">Certified trainer and holistic practitioner</p>
+                  <p className="mt-3 text-sm font-semibold uppercase tracking-[0.2em] text-olive-dark">Certified personal trainer and holistic practitioner</p>
                 </div>
               </div>
             </motion.div>
