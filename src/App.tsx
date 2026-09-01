@@ -25,6 +25,7 @@ const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Transformation', href: '#transformation' },
   { label: 'Coaching', href: '#coaching' },
+  { label: 'Strong & Sober', href: '#strong-and-sober' },
   { label: 'Packages', href: '#packages' },
   { label: 'EFT Tapping', href: '#eft' },
   { label: 'Core Clearing', href: '#core-clearing' },
@@ -116,6 +117,46 @@ const coachingPackages = [
       'Priority messaging support',
       "Access to women's support community WhatsApp group",
     ],
+  },
+]
+
+const strongAndSoberTiers = [
+  {
+    level: 'Option 1',
+    title: 'Foundations',
+    subtitle: 'Self-Led',
+    price: '$1,400',
+    description:
+      'A self-led path through the Strong & Sober program, with a planned training structure to follow at your own pace.',
+    includes: ['3 - 4 planned training sessions each week', 'Self-led program format'],
+  },
+  {
+    level: 'Option 2',
+    title: 'All In',
+    subtitle: 'Self-Led + Live 1:1 Coaching',
+    price: '$2,700',
+    description:
+      'Everything in Foundations, plus dedicated live coaching time with Becky each week for hands-on guidance and accountability.',
+    includes: [
+      '3 - 4 planned training sessions each week',
+      '2 live 45-minute 1:1 training sessions with Becky',
+      'Self-led program format',
+    ],
+  },
+]
+
+const paymentOptions = [
+  {
+    title: 'E-transfer',
+    text: 'Pay by e-transfer at no additional cost.',
+  },
+  {
+    title: 'Credit or debit via Stripe',
+    text: 'Card payments are processed through Stripe. A processing fee is added to cover the transaction cost.',
+  },
+  {
+    title: 'Payment plans',
+    text: 'Payment plans are available for both options. Reach out to arrange a schedule that works for you.',
   },
 ]
 
@@ -1093,6 +1134,67 @@ function App() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section id="strong-and-sober" className="px-5 py-20 sm:px-8 lg:py-28">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              eyebrow="Strong & Sober"
+              title="A program built for strength in sobriety."
+              text="Two ways to take part, depending on how much live coaching support you want alongside the training."
+            />
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }}
+              className="mt-14 grid gap-5 lg:grid-cols-2"
+            >
+              {strongAndSoberTiers.map((item, index) => (
+                <motion.article
+                  key={item.title}
+                  variants={floatIn}
+                  transition={{ duration: 0.55, delay: index * 0.08 }}
+                  className="flex flex-col rounded-[2rem] border border-white/70 bg-white/68 p-7 shadow-soft"
+                >
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-olive-dark">{item.level}</p>
+                  <h3 className="mt-4 font-serif text-3xl font-semibold leading-tight text-ink">{item.title}</h3>
+                  <p className="mt-3 font-bold text-ink/72">{item.subtitle}</p>
+                  <p className="mt-5 font-serif text-4xl font-semibold text-ink">{item.price}</p>
+                  <p className="mt-5 leading-7 text-ink/68">{item.description}</p>
+                  <div className="mt-6">
+                    <p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">Includes</p>
+                    <div className="grid gap-2">
+                      {item.includes.map((include) => (
+                        <div key={include} className="flex gap-3 text-sm leading-6 text-ink/70">
+                          <Check className="mt-0.5 shrink-0 text-olive-dark" size={17} />
+                          <span>{include}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.article>
+              ))}
+            </motion.div>
+
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }}
+              className="mt-10 rounded-[2rem] border border-white/70 bg-soft p-7"
+            >
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">Payment options</p>
+              <div className="mt-5 grid gap-5 sm:grid-cols-3">
+                {paymentOptions.map((option, index) => (
+                  <motion.div key={option.title} variants={fadeUp} transition={{ duration: 0.5, delay: index * 0.08 }}>
+                    <p className="text-base font-bold text-ink">{option.title}</p>
+                    <p className="mt-2 text-sm leading-6 text-ink/68">{option.text}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </section>
 
