@@ -120,27 +120,86 @@ const coachingPackages = [
   },
 ]
 
+const strongAndSoberProgram = {
+  headline: 'Build the strength your sobriety already proved you have.',
+  description:
+    'A 12-week strength, nutrition, and coaching program for women in recovery who want their bodies to feel as strong as the lives they have rebuilt.',
+  promise:
+    'Build strength, steadier routines, and more pride in your body with a plan designed for life after addiction.',
+  container:
+    '12 weeks of personalized training, practical nutrition guidance, weekly coaching, and accountable support.',
+}
+
+const strongAndSoberPhases = [
+  {
+    month: 'Month 1',
+    title: 'Ground',
+    icon: Leaf,
+    text: 'Start with the body and life you have now.',
+    points: [
+      'Assess capacity, habits, and support needs',
+      'Set a realistic baseline',
+      'Build early consistency without all-or-nothing pressure',
+    ],
+  },
+  {
+    month: 'Month 2',
+    title: 'Build',
+    icon: TrendingUp,
+    text: 'Progress strength while coaching what gets in the way.',
+    points: ['Follow progressive training', 'Practice food-as-fuel routines', 'Work with resistance and self-sabotage'],
+  },
+  {
+    month: 'Month 3',
+    title: 'Own',
+    icon: BadgeCheck,
+    text: 'Turn support into capability you can carry forward.',
+    points: [
+      'Notice visible and lived progress',
+      'Strengthen independent decision-making',
+      'Leave with a sustainable next-phase plan',
+    ],
+  },
+]
+
+const strongAndSoberIncludes = [
+  'A starting assessment and personalized movement plan',
+  '3 - 4 planned training sessions each week',
+  'Video form review for self-led sessions',
+  'Practical food-as-fuel education and planning support',
+  'One weekly coaching call with Becky',
+  'Support for resistance, fear, and all-or-nothing patterns',
+  'Clear check-ins and accountable next steps',
+  'A personal plan for continuing after week 12',
+]
+
 const strongAndSoberTiers = [
   {
     level: 'Option 1',
     title: 'Foundations',
-    subtitle: 'Self-Led',
+    subtitle: 'Structured. Supported. Self-led.',
     price: '$1,400',
-    description:
-      'A self-led path through the Strong & Sober program, with a planned training structure to follow at your own pace.',
-    includes: ['3 - 4 planned training sessions each week', 'Self-led program format'],
+    priceNote: 'for 12 weeks',
+    includes: [
+      'Personalized weekly workout plan, 3 - 4 sessions each week',
+      'Video form checks',
+      'Nutrition education and planning support',
+      'Weekly coaching call',
+      'Accountability and agreed support between calls',
+    ],
   },
   {
     level: 'Option 2',
     title: 'All In',
-    subtitle: 'Self-Led + Live 1:1 Coaching',
+    subtitle: 'Live training. Close support.',
     price: '$2,700',
-    description:
-      'Everything in Foundations, plus dedicated live coaching time with Becky each week for hands-on guidance and accountability.',
+    priceNote: 'for 12 weeks',
     includes: [
-      '3 - 4 planned training sessions each week',
-      '2 live 45-minute 1:1 training sessions with Becky',
-      'Self-led program format',
+      'Everything in Foundations',
+      '2 live 45-minute 1:1 training sessions each week with Becky',
+      'Real-time coaching and form support',
+      'Closer accountability throughout the program',
+      'Clear session and cancellation boundaries',
     ],
   },
 ]
@@ -1141,15 +1200,99 @@ function App() {
           <div className="mx-auto max-w-7xl">
             <SectionHeader
               eyebrow="Strong & Sober"
-              title="A program built for strength in sobriety."
-              text="Two ways to take part, depending on how much live coaching support you want alongside the training."
+              title={strongAndSoberProgram.headline}
+              text={strongAndSoberProgram.description}
             />
+
             <motion.div
               variants={staggerGroup}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.12 }}
               className="mt-14 grid gap-5 lg:grid-cols-2"
+            >
+              <motion.div
+                variants={floatIn}
+                transition={{ duration: 0.55 }}
+                className="rounded-[2rem] border border-white/70 bg-white/68 p-7 shadow-soft"
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-olive-dark">The promise</p>
+                <p className="mt-4 font-serif text-2xl font-semibold leading-snug text-ink">{strongAndSoberProgram.promise}</p>
+              </motion.div>
+              <motion.div
+                variants={floatIn}
+                transition={{ duration: 0.55, delay: 0.08 }}
+                className="rounded-[2rem] border border-white/70 bg-white/68 p-7 shadow-soft"
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-olive-dark">The container</p>
+                <p className="mt-4 font-serif text-2xl font-semibold leading-snug text-ink">{strongAndSoberProgram.container}</p>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }}
+              className="mt-5 grid gap-5 lg:grid-cols-3"
+            >
+              {strongAndSoberPhases.map((phase, index) => {
+                const Icon = phase.icon
+                return (
+                  <motion.article
+                    key={phase.title}
+                    variants={floatIn}
+                    transition={{ duration: 0.55, delay: index * 0.08 }}
+                    className="flex flex-col rounded-[2rem] border border-white/70 bg-soft p-7"
+                  >
+                    <div className="flex items-center gap-3 text-olive-dark">
+                      <Icon size={22} />
+                      <p className="text-xs font-bold uppercase tracking-[0.2em]">{phase.month}</p>
+                    </div>
+                    <h3 className="mt-4 font-serif text-3xl font-semibold leading-tight text-ink">{phase.title}</h3>
+                    <p className="mt-3 leading-7 text-ink/68">{phase.text}</p>
+                    <div className="mt-5 grid gap-2">
+                      {phase.points.map((point) => (
+                        <div key={point} className="flex gap-3 text-sm leading-6 text-ink/70">
+                          <Check className="mt-0.5 shrink-0 text-olive-dark" size={17} />
+                          <span>{point}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.article>
+                )
+              })}
+            </motion.div>
+
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }}
+              className="mt-5 rounded-[2rem] border border-white/70 bg-white/68 p-7 shadow-soft"
+            >
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">What every client receives</p>
+              <div className="mt-5 grid gap-2 sm:grid-cols-2">
+                {strongAndSoberIncludes.map((include, index) => (
+                  <motion.div
+                    key={include}
+                    variants={fadeUp}
+                    transition={{ duration: 0.45, delay: index * 0.04 }}
+                    className="flex gap-3 text-sm leading-6 text-ink/70"
+                  >
+                    <Check className="mt-0.5 shrink-0 text-olive-dark" size={17} />
+                    <span>{include}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }}
+              className="mt-5 grid gap-5 lg:grid-cols-2"
             >
               {strongAndSoberTiers.map((item, index) => (
                 <motion.article
@@ -1161,8 +1304,10 @@ function App() {
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-olive-dark">{item.level}</p>
                   <h3 className="mt-4 font-serif text-3xl font-semibold leading-tight text-ink">{item.title}</h3>
                   <p className="mt-3 font-bold text-ink/72">{item.subtitle}</p>
-                  <p className="mt-5 font-serif text-4xl font-semibold text-ink">{item.price}</p>
-                  <p className="mt-5 leading-7 text-ink/68">{item.description}</p>
+                  <div className="mt-5 flex items-baseline gap-3">
+                    <p className="font-serif text-4xl font-semibold text-ink">{item.price}</p>
+                    <p className="text-sm font-bold text-ink/60">{item.priceNote}</p>
+                  </div>
                   <div className="mt-6">
                     <p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">Includes</p>
                     <div className="grid gap-2">
@@ -1183,7 +1328,7 @@ function App() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.12 }}
-              className="mt-10 rounded-[2rem] border border-white/70 bg-soft p-7"
+              className="mt-5 rounded-[2rem] border border-white/70 bg-soft p-7"
             >
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">Payment options</p>
               <div className="mt-5 grid gap-5 sm:grid-cols-3">
