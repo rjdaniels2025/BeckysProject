@@ -302,6 +302,29 @@ const addOnServices = [
   },
 ]
 
+const featuredTestimonial = {
+  name: 'Faiza',
+  paragraphs: [
+    'Working with Becky has been about so much more than getting stronger physically\u2014it has been about learning to show up for myself.',
+    'She is incredibly patient, encouraging, and genuinely attentive to my personal reality. She understands that life can sometimes make it difficult to get to the gym or find the motivation to work out, and she meets me where I am without judgment but also will not tolerate excuses, and that makes this balance beautiful. Whether we are training together over FaceTime at the gym or on Zoom, she is fully present\u2014guiding me through each movement, helping me understand the why behind what we are doing, and making sure I am progressing safely and intentionally through progressive overload. I have seen my body transform over the weeks and months.',
+    'What makes her approach truly special is the soulful and mindful way she coaches. Throughout our workouts, she reminds me of my strength\u2014not just physical strength, but mental and emotional strength too. She has helped me recognize that sometimes the biggest achievement is simply showing up for myself.',
+    'I have become stronger, more confident, and more aware of what my body is capable of, but perhaps most importantly, I have developed a deeper appreciation for the commitment I am making to myself. She is the kind of trainer who sees the whole person, not just the workout in front of her, and that makes all the difference.',
+  ],
+}
+
+const testimonials = [
+  {
+    name: 'Vibha Mistry',
+    location: 'Pickering, Ontario',
+    text: "Becky is an amazing coach who is incredibly encouraging, supportive, and motivating. She takes the time to explain everything clearly, pushes you to challenge yourself, and always makes you feel like you can accomplish more than you thought you could. I\u2019m so grateful for her positive energy and support!",
+  },
+  {
+    name: 'Katie Bailie',
+    location: 'Clarington, Ontario',
+    text: 'Becky has been nothing short of amazing as a coach! Her energy gets me pumped up for our morning workouts! She is easy to follow, and though the workouts are challenging, she makes it fun! Who knew working out was fun! Thanks Becky for pouring your passion for helping others into your role as Coach!',
+  },
+]
+
 const fitList = [
   'You feel disconnected from yourself',
   'You struggle with confidence, emotional eating, or self-sabotaging patterns',
@@ -1613,6 +1636,68 @@ function App() {
                 <ArrowRight className="transition group-hover:translate-x-1" size={19} />
               </motion.a>
             </div>
+          </div>
+        </section>
+
+        <section id="testimonials" className="px-5 py-20 sm:px-8 lg:py-28">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              eyebrow="Client Words"
+              title="What it is like to be coached by Becky."
+              text="In their own words, from women she trains."
+            />
+
+            <motion.figure
+              variants={floatIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.55 }}
+              className="mt-14 rounded-[2rem] border border-white/70 bg-white/68 p-7 shadow-soft lg:p-10"
+            >
+              <Star className="text-olive-dark" size={26} />
+              <blockquote className="mt-5 grid gap-5">
+                {featuredTestimonial.paragraphs.map((paragraph, index) => (
+                  <p
+                    key={paragraph.slice(0, 40)}
+                    className={
+                      index === 0
+                        ? 'font-serif text-2xl font-semibold leading-snug text-ink sm:text-3xl'
+                        : 'leading-7 text-ink/70'
+                    }
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </blockquote>
+              <figcaption className="mt-7 text-sm font-bold uppercase tracking-[0.2em] text-olive-dark">
+                {featuredTestimonial.name}
+              </figcaption>
+            </motion.figure>
+
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }}
+              className="mt-5 grid gap-5 lg:grid-cols-2"
+            >
+              {testimonials.map((item, index) => (
+                <motion.figure
+                  key={item.name}
+                  variants={floatIn}
+                  transition={{ duration: 0.55, delay: index * 0.08 }}
+                  className="flex flex-col rounded-[2rem] border border-white/70 bg-soft p-7"
+                >
+                  <Star className="text-olive-dark" size={22} />
+                  <blockquote className="mt-4 leading-7 text-ink/72">{item.text}</blockquote>
+                  <figcaption className="mt-6">
+                    <p className="text-base font-bold text-ink">{item.name}</p>
+                    <p className="mt-1 text-sm text-ink/60">{item.location}</p>
+                  </figcaption>
+                </motion.figure>
+              ))}
+            </motion.div>
           </div>
         </section>
 
