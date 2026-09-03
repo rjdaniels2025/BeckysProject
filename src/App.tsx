@@ -130,6 +130,66 @@ const strongAndSoberProgram = {
     '12 weeks of personalized training, practical nutrition guidance, weekly coaching, and accountable support.',
 }
 
+const strongAndSoberSubhead =
+  'The fitness and nutrition program to help you become the strong, steady, fully-in-control version of yourself your body has not caught up to yet, without generic fitness plans that were never built for women in recovery, even if you have started and stopped before.'
+
+const strongAndSoberRecognition = [
+  'I got my life back and I still do not feel at home in my body.',
+  'I used food as a coping mechanism for so long. Now I feel like I am guessing.',
+  'Every workout plan seems made for someone who was never falling apart.',
+  'Some days I feel capable. Some days I can barely get off the couch.',
+  'What if I try again, stop again, and decide that means I am broken?',
+]
+
+const strongAndSoberWants = [
+  'To look in the mirror and recognize the woman you are now',
+  'To trust that your body can do what you ask of it',
+  'To eat without turning every choice into a daily battle',
+  'To have energy you do not have to fight for',
+  'To be admired for your strength, not defined only by what you survived',
+]
+
+const strongAndSoberReframe = {
+  title: 'The problem is not that you lack discipline.',
+  text: 'Most fitness advice was not built around recovery, uneven capacity, or the need to rebuild trust without turning your body into another battleground.',
+}
+
+const strongAndSoberOutcome = {
+  title: 'Strength you can feel, see, and carry forward.',
+  text: 'Capability, self-trust, steadier routines, and visible progress. Muscle is visible, earned strength. It cannot tell your whole recovery story, but it can let the outside finally reflect something true about the woman you fought to become.',
+}
+
+const strongAndSoberAuthority =
+  'I have lived the full arc myself: addiction, chronic depression and anxiety, Type 2 diabetes, sobriety, and the slower work of rebuilding my health and strength. I lost over 110 pounds, reversed my Type 2 diabetes, and came off the medications I had been taking. I am not a coach who only studied this from the outside. I know what it is to begin again in a body you are still learning to trust. I built this program to give women in recovery the kind of steady whole-person support I needed: progressive movement, practical food guidance, real coaching, and room for the hard days without losing the plan.'
+
+const strongAndSoberPath = [
+  {
+    step: '01',
+    title: 'You recognize yourself',
+    text: 'A post, a referral, a conversation, or this page names the moment you are in.',
+  },
+  {
+    step: '02',
+    title: 'You understand the offer',
+    text: 'One clear page explains who it is for, the 12-week result, the Ground to Build to Own path, two support levels, and the investment.',
+  },
+  {
+    step: '03',
+    title: 'You book a consult',
+    text: 'A short conversation explores your goals, readiness, relevant health considerations, and which level of support fits.',
+  },
+  {
+    step: '04',
+    title: 'You receive a clear recommendation',
+    text: 'Becky recommends Foundations, All In, or a different kind of support. No pressure, and no pretending every person is a fit.',
+  },
+  {
+    step: '05',
+    title: 'You start with clean boundaries',
+    text: 'Agreement, payment, screening, consent, scheduling, cancellation policy, communication boundaries, and onboarding are handled before we begin.',
+  },
+]
+
 const strongAndSoberPhases = [
   {
     month: 'Month 1',
@@ -1204,6 +1264,69 @@ function App() {
               text={strongAndSoberProgram.description}
             />
 
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.55 }}
+              className="mx-auto mt-6 max-w-3xl text-center leading-7 text-ink/68"
+            >
+              {strongAndSoberSubhead}
+            </motion.p>
+
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }}
+              className="mt-14 grid gap-5 lg:grid-cols-2"
+            >
+              <motion.div
+                variants={floatIn}
+                transition={{ duration: 0.55 }}
+                className="rounded-[2rem] border border-white/70 bg-white/68 p-7 shadow-soft"
+              >
+                <p className="text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">If this sounds like you</p>
+                <div className="mt-5 grid gap-4">
+                  {strongAndSoberRecognition.map((quote) => (
+                    <p key={quote} className="border-l-2 border-blush-light pl-4 leading-7 text-ink/72 italic">
+                      &ldquo;{quote}&rdquo;
+                    </p>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div
+                variants={floatIn}
+                transition={{ duration: 0.55, delay: 0.08 }}
+                className="rounded-[2rem] border border-white/70 bg-white/68 p-7 shadow-soft"
+              >
+                <p className="text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">What you want instead</p>
+                <div className="mt-5 grid gap-3">
+                  {strongAndSoberWants.map((want) => (
+                    <div key={want} className="flex gap-3 leading-7 text-ink/70">
+                      <Check className="mt-1 shrink-0 text-olive-dark" size={18} />
+                      <span>{want}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55 }}
+              className="mt-5 rounded-[2rem] border border-white/70 bg-soft p-7 lg:p-10"
+            >
+              <h3 className="font-serif text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+                {strongAndSoberReframe.title}
+              </h3>
+              <p className="mt-4 max-w-3xl leading-7 text-ink/68">{strongAndSoberReframe.text}</p>
+            </motion.div>
+
             <motion.div
               variants={staggerGroup}
               initial="hidden"
@@ -1321,6 +1444,54 @@ function App() {
                   </div>
                 </motion.article>
               ))}
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55 }}
+              className="mt-5 rounded-[2rem] border border-white/70 bg-white/68 p-7 shadow-soft lg:p-10"
+            >
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">The outcome</p>
+              <h3 className="mt-4 font-serif text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+                {strongAndSoberOutcome.title}
+              </h3>
+              <p className="mt-4 max-w-3xl leading-7 text-ink/68">{strongAndSoberOutcome.text}</p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55 }}
+              className="mt-5 rounded-[2rem] border border-white/70 bg-soft p-7 lg:p-10"
+            >
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">Why Becky built this</p>
+              <p className="mt-4 max-w-4xl font-serif text-xl leading-8 text-ink/78 sm:text-2xl sm:leading-9">
+                &ldquo;{strongAndSoberAuthority}&rdquo;
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={staggerGroup}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.12 }}
+              className="mt-5 rounded-[2rem] border border-white/70 bg-white/68 p-7 shadow-soft"
+            >
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-olive-dark">How it works</p>
+              <div className="mt-6 grid gap-5 lg:grid-cols-5">
+                {strongAndSoberPath.map((item, index) => (
+                  <motion.div key={item.step} variants={fadeUp} transition={{ duration: 0.5, delay: index * 0.07 }}>
+                    <p className="font-serif text-3xl font-semibold text-olive-dark/70">{item.step}</p>
+                    <p className="mt-2 text-base font-bold text-ink">{item.title}</p>
+                    <p className="mt-2 text-sm leading-6 text-ink/68">{item.text}</p>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
 
             <motion.div
